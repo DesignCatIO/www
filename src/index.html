@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DesignCat - Produce studio-quality content in-house with AI">
+    <title>DesignCat - Coming Q4 2025</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0e27;
+            --bg-secondary: #131829;
+            --accent-blue: #3b82f6;
+            --accent-pink: #ec4899;
+            --accent-purple: #8b5cf6;
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Animated gradient background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(236, 72, 153, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+            animation: gradientShift 15s ease infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.8;
+                transform: scale(1.1);
+            }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 2rem;
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo-container {
+            margin-bottom: 3rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .logo {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto;
+            filter: drop-shadow(0 20px 60px rgba(139, 92, 246, 0.4));
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple), var(--accent-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            line-height: 1.6;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .launch-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 50px;
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 0 10px rgba(139, 92, 246, 0);
+            }
+        }
+
+        .launch-badge:hover {
+            background: rgba(139, 92, 246, 0.15);
+            border-color: rgba(139, 92, 246, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .launch-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--accent-purple);
+            border-radius: 50%;
+            animation: blink 1.5s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.3;
+            }
+        }
+
+        .notify-section {
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .notify-text {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 500;
+        }
+
+        .email-form {
+            display: flex;
+            gap: 0.75rem;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .email-input {
+            flex: 1;
+            padding: 0.875rem 1.25rem;
+            background: var(--bg-secondary);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .email-input:focus {
+            border-color: var(--accent-purple);
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+        }
+
+        .email-input::placeholder {
+            color: rgba(203, 213, 225, 0.5);
+        }
+
+        .notify-button {
+            padding: 0.875rem 1.75rem;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .notify-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+        }
+
+        .notify-button:active {
+            transform: translateY(0);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .tagline {
+                font-size: 1.25rem;
+                padding: 0 1rem;
+            }
+
+            .logo {
+                width: 140px;
+                height: 140px;
+            }
+
+            .launch-badge {
+                font-size: 1rem;
+                padding: 0.875rem 1.5rem;
+            }
+
+            .email-form {
+                flex-direction: column;
+            }
+
+            .notify-button {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .tagline {
+                font-size: 1.125rem;
+            }
+
+            .logo {
+                width: 120px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <div class="logo">
+                <img src="assets/neo_cat.png" alt="DesignCat Logo">
+            </div>
+        </div>
+
+        <h1>DesignCat</h1>
+        
+        <p class="tagline">
+            Produce studio-quality content in-house — with AI
+        </p>
+
+        <div class="launch-badge">
+            Launching Q4 2025
+        </div>
+
+        <div class="notify-section">
+            <p class="notify-text">Get notified when we launch</p>
+            <form class="email-form" id="notifyForm" onsubmit="handleSubmit(event)">
+                <input 
+                    type="email" 
+                    class="email-input" 
+                    name="email"
+                    placeholder="Enter your work email"
+                    required
+                    id="emailInput"
+                >
+                <button type="submit" class="notify-button" id="submitBtn">Notify Me</button>
+            </form>
+            <p id="formMessage" style="margin-top: 1rem; font-size: 0.875rem; color: var(--accent-purple);"></p>
+        </div>
+    </div>
+
+    <script>
+        // Configuration - Google Sheets Integration
+        const FORM_METHOD = 'google-sheets';
+        
+        // GOOGLE SHEETS SETUP:
+        // 1. Create a Google Sheet with headers: Timestamp | Email
+        // 2. Go to Extensions → Apps Script
+        // 3. Copy the code from google-script.js file
+        // 4. Deploy as Web App (Execute as: Me, Access: Anyone)
+        // 5. Paste your Web App URL below
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzwHzcbNTFL9EgIL7XNim_1TY2gmz8fe_OoHcowhSHLckaO9kczE_-phSl6s8mQWKA/exec'; // Paste your deployed script URL here
+
+        async function handleSubmit(event) {
+            event.preventDefault();
+            const email = document.getElementById('emailInput').value;
+            const submitBtn = document.getElementById('submitBtn');
+            const formMessage = document.getElementById('formMessage');
+            
+            // Disable button during submission
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            formMessage.textContent = '';
+
+            try {
+                if (FORM_METHOD === 'google-sheets') {
+                    // Google Sheets integration
+                    if (GOOGLE_SCRIPT_URL === 'YOUR_GOOGLE_SCRIPT_URL') {
+                        throw new Error('Please configure your Google Script URL first. See README.md for instructions.');
+                    }
+
+                    const response = await fetch(GOOGLE_SCRIPT_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ 
+                            email: email,
+                            timestamp: new Date().toISOString()
+                        })
+                    });
+                    
+                    // Note: no-cors mode means we can't read the response, but the data is sent
+                    formMessage.style.color = 'var(--accent-purple)';
+                    formMessage.textContent = '✓ Thanks! We\'ll notify you when we launch.';
+                    document.getElementById('emailInput').value = '';
+                }
+            } catch (error) {
+                formMessage.style.color = '#ef4444';
+                if (error.message.includes('configure')) {
+                    formMessage.textContent = '⚠ Please configure Google Sheets integration first.';
+                } else {
+                    formMessage.textContent = '✗ Oops! Something went wrong. Please try again.';
+                }
+                console.error('Error:', error);
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Notify Me';
+            }
+        }
+    </script>
+</body>
+</html>
+
