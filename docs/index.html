@@ -3,1243 +3,1173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="AI Design Suite for Businesses and Solopreneurs">
-    <title>DesignCat</title>
-    
-    <!-- Open Graph / Facebook / LinkedIn -->
+
+    <title>DesignCat - AI Design Suite for Businesses and Solopreneurs</title>
+    <meta name="description" content="Five purpose-built AI creative tools for video, image, and content creation. Intuitive by default. A straight line from idea to finished asset.">
+    <link rel="canonical" href="https://designcat.io/">
+
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://designcat.io/">
-    <meta property="og:title" content="DesignCat">
-    <meta property="og:description" content="AI Design Suite for Businesses and Solopreneurs">
+    <meta property="og:title" content="DesignCat - We handle the craft. You tell the story.">
+    <meta property="og:description" content="Five purpose-built AI creative tools, intuitive by default. Everything a creator needs — nothing they don't.">
     <meta property="og:image" content="https://designcat.io/assets/neo_cat_w_banner.png">
-    
-    <!-- Twitter -->
+    <meta property="og:site_name" content="DesignCat">
+
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://designcat.io/">
-    <meta name="twitter:title" content="DesignCat">
-    <meta name="twitter:description" content="AI Design Suite for Businesses and Solopreneurs">
+    <meta name="twitter:title" content="DesignCat - We handle the craft. You tell the story.">
+    <meta name="twitter:description" content="Five purpose-built AI creative tools. Everything a creator needs — nothing they don't.">
     <meta name="twitter:image" content="https://designcat.io/assets/neo_cat_w_banner.png">
-    
-    <!-- Favicon -->
+
     <link rel="icon" type="image/png" href="assets/neo_cat.png">
-    
+
+    <!-- Fonts: Playfair Display (luxe editorial serif) + Sora (clean body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Sora:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        /* ================================================================
+           V6 — "THE ATELIER"
+           ================================================================
+           Electric blue (#0028E0) on deep charcoal. Playfair Display
+           for headlines, Sora for body.
+
+           Layout: v3 toolkit card system (Motion featured card with
+           screenshot placeholder + 4 "coming soon" cards in grid).
+           Messaging: v4's Approach D architecture.
+
+           Think: a private atelier showroom. Precision and depth.
+           The work speaks. The space lets it.
+           ================================================================ */
 
         :root {
-            --bg-primary: #0a0e27;
-            --bg-secondary: #131829;
-            --accent-blue: #3b82f6;
-            --accent-pink: #ec4899;
-            --accent-purple: #8b5cf6;
-            --text-primary: #f8fafc;
-            --text-secondary: #cbd5e1;
+            --bg: #0a0b10;
+            --bg-warm: #0e0f15;
+            --bg-card: #13151d;
+            --bg-elevated: #1a1c26;
+
+            --cream: #eef0f8;
+            --cream-soft: #b4b9c9;
+            --gray: #7e8394;
+            --muted: #4f5263;
+
+            /* Electric blue */
+            --purple: #0028E0;
+            --purple-light: #3355ff;
+            --purple-dim: rgba(0, 40, 224, 0.12);
+            --purple-glow: rgba(0, 40, 224, 0.07);
+            --purple-hover: #1a3df0;
+            --purple-text: #ffffff;
+
+            --red: #ff0000;
+            --green: #34d058;
+            --yellow: #facc15;
+
+            --rule: #1e2030;
+            --rule-hover: #2e3048;
+
+            --serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+            --sans: 'Sora', ui-sans-serif, system-ui, sans-serif;
+
+            --max-w: 1060px;
+            --px: 28px;
+            --header-h: 64px;
+
+            --r-sm: 6px;
+            --r-md: 10px;
+            --r-lg: 14px;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
+            font-family: var(--sans);
+            background: var(--bg);
+            color: var(--cream);
             min-height: 100vh;
-            position: relative;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            line-height: 1.65;
         }
 
-        .page {
-            min-height: 100vh;
-            display: flex;
-            align-items: flex-start;
-            justify-content: center;
-            padding: 4rem 1.5rem 3.5rem;
+        img { display: block; max-width: 100%; }
+        a { color: inherit; text-decoration: none; }
+        address { font-style: normal; }
+        .wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--px); }
+
+        /* ── Film grain ──────────────────────────────────────── */
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 10000;
+            opacity: 0.035;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            background-size: 200px;
         }
 
-        .site-header {
-            position: sticky;
-            top: 0;
-            z-index: 2;
-            background: rgba(10, 14, 39, 0.85);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(12px);
-        }
-
-        .header-inner {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 7px 1.5rem 4px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1.5rem;
-        }
-
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            text-decoration: none;
-        }
-
-        .brand-logo {
-            width: 64px;
-            height: 64px;
-            position: relative;
-            overflow: visible;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .brand-logo img {
-            width: 74px;
-            height: 74px;
-            object-fit: contain;
-            transform: translateY(-5px);
-        }
-
-        .brand-name {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: #ff0000;
-            letter-spacing: -0.01em;
-        }
-
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .header-button {
-            padding: 0.5rem 1.4rem;
-            border-radius: 999px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            color: var(--text-primary);
-            text-decoration: none;
-            font-weight: 600;
-            background: rgba(255, 255, 255, 0.08);
-            transition: all 0.3s ease;
-        }
-
-        .header-button.primary {
-            background: rgba(59, 130, 246, 0.22);
-            border-color: rgba(59, 130, 246, 0.5);
-        }
-
-        .header-button:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 8px 20px rgba(10, 14, 39, 0.35);
-        }
-
-        /* Animated gradient background */
+        /* ── Vignette ────────────────────────────────────────── */
         body::before {
             content: '';
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(236, 72, 153, 0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 40% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
-            animation: gradientShift 15s ease infinite;
+            inset: 0;
             pointer-events: none;
-            z-index: 0;
+            z-index: 9999;
+            background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.4) 100%);
         }
 
-        @keyframes gradientShift {
-            0%, 100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-            50% {
-                opacity: 0.8;
-                transform: scale(1.1);
-            }
+        /* ================================================================
+           HEADER
+           ================================================================ */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 200;
+            height: var(--header-h);
+            background: rgba(10, 11, 16, 0.92);
+            backdrop-filter: blur(16px) saturate(1.15);
+            -webkit-backdrop-filter: blur(16px) saturate(1.15);
+            border-bottom: 1px solid var(--rule);
         }
 
-        .container {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-            padding: 2rem;
-            max-width: 1100px;
-            width: 100%;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .logo-container {
-            margin-bottom: 3rem;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        .logo {
-            width: 180px;
-            height: 180px;
+        .header-inner {
+            max-width: var(--max-w);
             margin: 0 auto;
-            filter: drop-shadow(0 20px 60px rgba(139, 92, 246, 0.4));
-            transition: transform 0.3s ease;
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
-        }
-
-        .logo img {
-            width: 100%;
+            padding: 0 var(--px);
             height: 100%;
-            object-fit: contain;
-        }
-
-        .tagline-hero {
-            font-size: clamp(0.95rem, 2.2vw, 1.8rem);
-            font-weight: 700;
-            margin-bottom: 2.5rem;
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple), var(--accent-pink));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1.2;
-            letter-spacing: -0.02em;
-            max-width: none;
-            width: 100%;
-            margin-left: auto;
-            margin-right: auto;
-            white-space: nowrap;
-        }
-
-        .tagline {
-            font-size: 1.5rem;
-            font-weight: 400;
-            color: var(--text-secondary);
-            margin-bottom: 3rem;
-            line-height: 1.6;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .launch-badge {
-            display: inline-flex;
+            display: flex;
             align-items: center;
-            gap: 0.75rem;
-            padding: 1rem 2rem;
-            background: rgba(139, 92, 246, 0.1);
-            border: 1px solid rgba(139, 92, 246, 0.3);
-            border-radius: 50px;
-            font-size: 1.125rem;
-            font-weight: 500;
-            color: var(--text-primary);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-            animation: pulse 2s ease-in-out infinite;
+            justify-content: space-between;
         }
 
-        @keyframes pulse {
-            0%, 100% {
-                box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.4);
-            }
-            50% {
-                box-shadow: 0 0 0 10px rgba(139, 92, 246, 0);
-            }
+        .brand { display: flex; align-items: center; gap: 10px; }
+        .brand img { width: 46px; height: 46px; object-fit: contain; }
+        .brand-name { font-size: 1.35rem; font-weight: 700; color: var(--red); }
+
+        .nav { display: flex; gap: 28px; }
+        .nav a { font-size: 13px; font-weight: 400; color: var(--gray); letter-spacing: 0.02em; transition: color 0.2s; }
+        .nav a:hover { color: var(--cream); }
+
+        .hdr-ctas { display: flex; gap: 8px; }
+
+        /* ── Buttons ─────────────────────────────────────────── */
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+            font-family: var(--sans); font-weight: 600; font-size: 14px;
+            border: none; cursor: pointer; transition: all 0.25s ease;
+            white-space: nowrap; line-height: 1;
+        }
+        .btn svg { flex-shrink: 0; }
+
+        .btn-ghost { padding: 9px 16px; border-radius: var(--r-sm); background: transparent; color: var(--gray); }
+        .btn-ghost:hover { color: var(--cream); }
+
+        .btn-purple {
+            padding: 10px 24px; border-radius: var(--r-sm);
+            background: var(--purple); color: var(--purple-text);
+        }
+        .btn-purple:hover {
+            background: var(--purple-hover);
+            box-shadow: 0 4px 24px rgba(0, 40, 224, 0.4);
+            transform: translateY(-1px);
         }
 
-        .launch-badge:hover {
-            background: rgba(139, 92, 246, 0.15);
-            border-color: rgba(139, 92, 246, 0.5);
-            transform: translateY(-2px);
+        .btn-outline {
+            padding: 10px 24px; border-radius: var(--r-sm);
+            background: transparent; color: var(--cream); border: 1px solid var(--rule-hover);
         }
+        .btn-outline:hover { border-color: var(--purple-light); color: var(--purple-light); }
 
-        .launch-badge::before {
-            content: '';
-            width: 8px;
-            height: 8px;
-            background: var(--accent-purple);
-            border-radius: 50%;
-            animation: blink 1.5s ease-in-out infinite;
-        }
+        .btn-lg { padding: 16px 40px; font-size: 15px; border-radius: var(--r-md); }
 
-        @keyframes blink {
-            0%, 100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.3;
-            }
-        }
-
-        .notify-section {
-            margin-top: 4rem;
-            padding-top: 3rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            scroll-margin-top: 40px;
-        }
-
-        .notify-text {
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            font-weight: 500;
-        }
-
-        .email-form {
+        /* ================================================================
+           HERO — centered, confident, editorial
+           ================================================================ */
+        .hero {
+            min-height: calc(100vh - var(--header-h));
             display: flex;
-            gap: 0.75rem;
-            max-width: 400px;
-            margin: 0 auto;
-        }
-
-        .email-input {
-            flex: 1;
-            padding: 0.875rem 1.25rem;
-            background: var(--bg-secondary);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            color: var(--text-primary);
-            font-size: 1rem;
-            font-family: inherit;
-            transition: all 0.3s ease;
-            outline: none;
-        }
-
-        .email-input:focus {
-            border-color: var(--accent-purple);
-            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
-        }
-
-        .email-input::placeholder {
-            color: rgba(203, 213, 225, 0.5);
-        }
-
-        .notify-button {
-            padding: 0.875rem 1.75rem;
-            background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
-            border: none;
-            border-radius: 12px;
-            color: white;
-            font-size: 1rem;
-            font-weight: 600;
-            font-family: inherit;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-        }
-
-        .notify-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
-        }
-
-        .notify-button:active {
-            transform: translateY(0);
-        }
-
-        .tools-section {
-            margin-top: 3.5rem;
-            text-align: left;
-        }
-
-        .tools-header {
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            margin-bottom: 2rem;
+            padding: 80px 0;
+            position: relative;
         }
 
-        .tools-header h2 {
-            font-size: 2.1rem;
+        /* Ambient purple wash — like velvet behind glass */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 6%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 700px; height: 500px;
+            background: radial-gradient(ellipse, rgba(0, 40, 224, 0.06) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        /* Diagonal slash — the atelier mark */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 12%;
+            right: 8%;
+            width: 1px;
+            height: 180px;
+            background: linear-gradient(180deg, transparent, rgba(0, 40, 224, 0.2), transparent);
+            transform: rotate(25deg);
+            pointer-events: none;
+        }
+
+        .hero .wrap { position: relative; z-index: 1; }
+
+        .hero-eyebrow {
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--purple-light);
+            margin-bottom: 32px;
+        }
+
+        .hero h1 {
+            font-family: var(--serif);
+            font-size: clamp(3rem, 6.5vw, 5.2rem);
+            font-weight: 400;
+            font-style: italic;
+            letter-spacing: -0.015em;
+            line-height: 1.08;
+            margin-bottom: 28px;
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            color: var(--purple-light);
+            position: relative;
+        }
+
+        /* Subtle underline accent on "craft" */
+        .hero h1 em::after {
+            content: '';
+            position: absolute;
+            left: 0; right: 0;
+            bottom: 2px;
+            height: 3px;
+            background: var(--purple);
+            border-radius: 2px;
+            opacity: 0.6;
+        }
+
+        .hero-sub {
+            font-size: clamp(0.92rem, 1.4vw, 1.02rem);
+            font-weight: 300;
+            color: var(--cream-soft);
+            max-width: 520px;
+            margin: 0 auto 44px;
+            line-height: 1.85;
+        }
+
+        .hero-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+        /* ================================================================
+           SECTION PRIMITIVES
+           ================================================================ */
+        .section { padding: 120px 0; border-top: 1px solid var(--rule); }
+
+        .tag {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--purple-light);
+            margin-bottom: 14px;
+        }
+
+        .sec-title {
+            font-family: var(--sans);
+            font-size: clamp(2rem, 4vw, 2.8rem);
             font-weight: 700;
-            margin-bottom: 0.75rem;
+            line-height: 1.15;
+            margin-bottom: 18px;
+            letter-spacing: -0.02em;
         }
 
-        .tools-header p {
-            color: var(--text-secondary);
-            font-size: 1.05rem;
-            line-height: 1.6;
-            max-width: 620px;
-            margin: 0 auto;
+        .sec-desc {
+            font-size: 1rem;
+            font-weight: 300;
+            color: var(--cream-soft);
+            line-height: 1.8;
+            max-width: 560px;
         }
 
-        .tools-carousel {
-            display: flex;
-            gap: 1.5rem;
-            overflow-x: auto;
-            padding: 0.25rem 0.25rem 1rem;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
+        .sec-desc strong { color: var(--cream); font-weight: 500; }
+
+        /* ================================================================
+           MOTION DEEP-DIVE
+           ================================================================ */
+        .motion-header { margin-bottom: 64px; }
+
+        /* ── Storyboard panels ── */
+        .storyboard {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 64px;
         }
 
-        .tools-carousel::-webkit-scrollbar {
-            height: 6px;
-        }
+        .sb-panel { position: relative; }
 
-        .tools-carousel::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 999px;
-        }
-
-        .tool-card {
-            background: rgba(19, 24, 41, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 1.5rem;
-            min-width: 230px;
-            flex: 0 0 230px;
+        .sb-frame {
+            aspect-ratio: 3 / 4;
+            background: var(--bg-card);
+            border: 1px solid var(--rule);
+            border-radius: var(--r-md);
+            overflow: hidden;
             display: flex;
             flex-direction: column;
-            gap: 0.75rem;
-            scroll-snap-align: start;
-            box-shadow: 0 15px 40px rgba(10, 14, 39, 0.35);
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px;
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            position: relative;
         }
 
-        .tool-icon {
-            width: 56px;
-            height: 56px;
-            background: rgba(59, 130, 246, 0.12);
-            border-radius: 14px;
+        .sb-frame:hover {
+            border-color: rgba(51, 85, 255, 0.35);
+            box-shadow: 0 14px 44px rgba(0,0,0,0.45), 0 0 40px rgba(0, 40, 224, 0.06);
+            transform: translateY(-6px);
+        }
+
+        /* Step number — minimal circle */
+        .sb-num {
+            width: 28px; height: 28px;
+            border-radius: 50%;
+            background: var(--purple-dim);
+            border: 1px solid rgba(51, 85, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--purple-light);
+            flex-shrink: 0;
+        }
+
+        .sb-label {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--muted);
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        .sb-caption { margin-top: 14px; }
+        .sb-caption p {
+            font-size: 0.86rem;
+            font-weight: 300;
+            color: var(--cream-soft);
+            line-height: 1.55;
+        }
+
+        /* ── Finished film frame ── */
+        .film-result {
+            max-width: 740px;
+            margin: 0 auto 32px;
+        }
+
+        .film-frame {
+            aspect-ratio: 21 / 9;
+            background: var(--bg-card);
+            border: 1px solid var(--rule);
+            border-radius: var(--r-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .film-frame::before, .film-frame::after {
+            content: ''; position: absolute; left: 0; right: 0;
+            height: 11%; background: var(--bg); z-index: 1;
+        }
+        .film-frame::before { top: 0; }
+        .film-frame::after { bottom: 0; }
+
+        .film-frame span {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--muted);
+            z-index: 2;
+        }
+
+        .film-caption {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1rem;
+            font-weight: 300;
+            color: var(--cream-soft);
+        }
+        .film-caption strong { color: var(--purple-light); font-weight: 600; }
+
+        .motion-cta { text-align: center; margin-top: 40px; }
+
+        /* ================================================================
+           TOOLKIT — v3 card system: featured + grid
+           ================================================================ */
+        .toolkit-header {
+            margin-bottom: 56px;
+        }
+
+        .toolkit-header .sec-desc { max-width: 460px; }
+
+        /* Featured tool: Motion — large card, split layout */
+        .tool-feature {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 40px;
+            align-items: center;
+            padding: 48px;
+            background: var(--bg-card);
+            border: 1px solid var(--rule);
+            border-radius: var(--r-lg);
+            margin-bottom: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Warm corner glow */
+        .tool-feature::after {
+            content: '';
+            position: absolute;
+            top: -40px; right: -40px;
+            width: 220px; height: 220px;
+            background: radial-gradient(circle, var(--purple-glow), transparent 60%);
+            pointer-events: none;
+        }
+
+        .tf-icon {
+            width: 56px; height: 56px;
+            border-radius: var(--r-md);
+            background: var(--purple-dim);
+            border: 1px solid rgba(51, 85, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .tf-icon img { width: 32px; height: 32px; }
+
+        .tf-badge {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            background: var(--green);
+            color: var(--bg);
+            padding: 3px 10px;
+            border-radius: 4px;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+
+        .tf-info h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+            line-height: 1.2;
+        }
+
+        .tf-info p {
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: var(--cream-soft);
+            line-height: 1.7;
+            margin-bottom: 28px;
+        }
+
+        .tf-visual {
+            aspect-ratio: 16 / 11;
+            background: var(--bg-warm);
+            border: 1px solid var(--rule);
+            border-radius: var(--r-md);
             display: flex;
             align-items: center;
             justify-content: center;
         }
-
-        .tool-icon img {
-            width: 34px;
-            height: 34px;
-            object-fit: contain;
+        .tf-visual span {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--muted);
         }
 
-        .tool-name {
+        /* Other tools: compact cards */
+        .tools-others {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+        }
+
+        .tool-other {
+            padding: 28px 22px;
+            background: var(--bg-card);
+            border: 1px solid var(--rule);
+            border-radius: var(--r-md);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .tool-other:hover {
+            border-color: var(--rule-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(0,0,0,0.35);
+        }
+
+        .tool-other-soon {
+            position: absolute;
+            top: 12px; right: 12px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--bg);
+            background: var(--yellow);
+            padding: 3px 10px;
+            border-radius: 4px;
+        }
+
+        .tool-other-icon {
+            width: 42px; height: 42px;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.025);
+            border: 1px solid var(--rule);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+        .tool-other-icon img { width: 24px; height: 24px; }
+
+        .tool-other h4 {
             font-size: 1.1rem;
             font-weight: 600;
+            margin-bottom: 6px;
         }
 
-        .tool-desc {
-            color: var(--text-secondary);
-            line-height: 1.5;
-            font-size: 0.95rem;
+        .tool-other p {
+            font-size: 0.82rem;
+            font-weight: 300;
+            color: var(--gray);
+            line-height: 1.55;
         }
 
-        .tool-date {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--accent-purple);
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            margin-top: auto;
-            padding-bottom: 0.2rem;
-        }
-
-        .pricing-section {
-            margin-top: 4rem;
-            text-align: left;
-        }
-
-        .pricing-header {
+        /* ================================================================
+           PRICING
+           ================================================================ */
+        .pricing-section .pricing-top {
             text-align: center;
-            margin-bottom: 2.5rem;
+            margin-bottom: 56px;
         }
 
-        .pricing-header h2 {
-            font-size: 2.25rem;
+        .pricing-top h2 {
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
             font-weight: 700;
-            margin-bottom: 0.75rem;
+            line-height: 1.2;
+            margin-bottom: 14px;
+            letter-spacing: -0.02em;
         }
 
-        .pricing-header p {
-            color: var(--text-secondary);
-            font-size: 1.05rem;
-            line-height: 1.6;
-            max-width: 640px;
+        .pricing-top p {
+            font-size: 1rem;
+            font-weight: 300;
+            color: var(--cream-soft);
+            max-width: 440px;
             margin: 0 auto;
+            line-height: 1.7;
         }
 
-        .pricing-group {
-            margin-bottom: 3rem;
-        }
-
-        .pricing-group:last-of-type {
-            margin-bottom: 0;
-        }
-
-        .pricing-group-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .pricing-group-subtitle {
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .pricing-group-header {
+        .pricing-controls {
             display: flex;
             align-items: flex-end;
             justify-content: space-between;
-            gap: 1.5rem;
             flex-wrap: wrap;
-            margin-bottom: 1.5rem;
+            gap: 16px;
+            margin-bottom: 24px;
         }
 
-        .pricing-group-header .pricing-group-subtitle {
-            margin-bottom: 0;
-        }
-
-        .billing-toggle {
-            display: inline-flex;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 999px;
-            padding: 0.3rem;
-            gap: 0.25rem;
-        }
-
-        .toggle-button {
-            border: none;
-            background: transparent;
-            color: var(--text-secondary);
-            padding: 0.5rem 1.25rem;
-            border-radius: 999px;
+        .pricing-controls h3 {
+            font-size: 1.3rem;
             font-weight: 600;
-            font-family: inherit;
-            cursor: pointer;
-            transition: all 0.2s ease;
+            margin-bottom: 4px;
         }
 
-        .toggle-button.is-active {
-            background: rgba(59, 130, 246, 0.25);
-            color: var(--text-primary);
-            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        .pricing-controls-sub { font-size: 0.88rem; color: var(--gray); font-weight: 300; }
+
+        .toggle-wrap {
+            display: inline-flex;
+            background: var(--bg-card);
+            border: 1px solid var(--rule);
+            border-radius: 999px;
+            padding: 4px;
         }
 
-        .toggle-button:focus-visible {
-            outline: 2px solid rgba(59, 130, 246, 0.6);
-            outline-offset: 2px;
+        .toggle-btn {
+            font-family: var(--sans); font-size: 13px; font-weight: 500;
+            padding: 8px 20px; border-radius: 999px; border: none;
+            background: transparent; color: var(--gray); cursor: pointer;
+            transition: all 0.25s;
         }
+        .toggle-btn.is-active { background: var(--purple); color: var(--purple-text); }
+        .toggle-btn:focus-visible { outline: 2px solid var(--purple-light); outline-offset: 2px; }
 
-        .pricing-cards {
+        .plans-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
         }
+        .plans-grid.is-hidden { display: none; }
 
-        .pricing-cards.is-hidden {
-            display: none;
-        }
-
-        .pricing-card {
-            background: rgba(19, 24, 41, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 1.5rem;
+        .plan-card {
+            background: var(--bg-card);
+            border: 1px solid var(--rule);
+            border-radius: var(--r-lg);
+            padding: 28px 22px;
             display: flex;
             flex-direction: column;
-            gap: 0.75rem;
-            position: relative;
-            box-shadow: 0 15px 40px rgba(10, 14, 39, 0.35);
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(139, 92, 246, 0.35);
-        }
-
-        .plan-name {
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
-
-        .price {
-            display: flex;
-            flex-wrap: nowrap;
-            align-items: baseline;
-            gap: 0.4rem;
-            white-space: nowrap;
-        }
-
-        .price-amount,
-        .price-discounted,
-        .price-original {
-            font-size: 2rem;
-            font-weight: 700;
-        }
-
-        .price-term {
-            font-size: 1rem;
-            font-weight: 500;
-            color: var(--text-secondary);
-        }
-
-        .price-original {
-            font-size: 1rem;
-            color: rgba(203, 213, 225, 0.7);
-            text-decoration: line-through;
-        }
-
-        .discount-badge {
-            font-size: 0.7rem;
-            font-weight: 700;
-            color: #0a0e27;
-            background: #facc15;
-            padding: 0.2rem 0.5rem;
-            border-radius: 999px;
-            text-transform: uppercase;
-            line-height: 1;
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-        }
-
-        .credits {
-            color: var(--text-secondary);
-            line-height: 1.5;
-        }
-
-        .price-note {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-        }
-
-        .plan-button {
-            margin-top: auto;
-            padding: 0.75rem 1.25rem;
-            border-radius: 12px;
-            border: 1px solid rgba(59, 130, 246, 0.4);
-            background: rgba(59, 130, 246, 0.12);
-            color: var(--text-primary);
-            text-decoration: none;
-            font-weight: 600;
-            text-align: center;
+            gap: 10px;
             transition: all 0.3s ease;
         }
+        .plan-card:hover { border-color: var(--rule-hover); transform: translateY(-3px); box-shadow: 0 12px 36px rgba(0,0,0,0.35); }
 
-        .plan-button:hover {
-            transform: translateY(-2px);
-            background: rgba(59, 130, 246, 0.2);
-            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        .plan-card.is-featured {
+            border-color: rgba(51, 85, 255, 0.35);
+            background: linear-gradient(180deg, rgba(0, 40, 224, 0.06) 0%, var(--bg-card) 50%);
+        }
+        .plan-card.is-featured::before {
+            content: 'Popular';
+            display: block;
+            font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+            color: var(--purple-light); margin-bottom: 2px;
         }
 
+        .plan-name { font-size: 1rem; font-weight: 600; }
+        .plan-price { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
+        .plan-amount { font-size: 2.4rem; font-weight: 700; line-height: 1; letter-spacing: -0.02em; }
+        .plan-term { font-size: 0.92rem; color: var(--gray); }
+        .plan-og { font-size: 0.92rem; color: var(--muted); text-decoration: line-through; }
+        .plan-save {
+            font-size: 11px; font-weight: 600;
+            background: var(--purple-dim); color: var(--purple-light);
+            padding: 2px 8px; border-radius: 999px;
+            border: 1px solid rgba(51, 85, 255, 0.2);
+        }
+        .plan-credits { font-size: 0.86rem; color: var(--gray); font-weight: 300; }
+        .plan-card .btn { margin-top: auto; width: 100%; }
+
+        .topups-block { margin-top: 56px; }
+        .topups-block h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 6px; }
+        .topups-block > p { font-size: 0.88rem; color: var(--gray); font-weight: 300; margin-bottom: 20px; }
+        .topups-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+
+        /* ================================================================
+           FINAL CTA
+           ================================================================ */
+        .final-cta {
+            padding: 140px 0;
+            text-align: center;
+            border-top: 1px solid var(--rule);
+            position: relative;
+        }
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: 30%; left: 50%; transform: translateX(-50%);
+            width: 500px; height: 250px;
+            background: radial-gradient(ellipse, var(--purple-glow), transparent 70%);
+            pointer-events: none;
+        }
+
+        /* Decorative diagonal slashes flanking the CTA */
+        .final-cta::after {
+            content: '';
+            position: absolute;
+            bottom: 20%;
+            left: 12%;
+            width: 1px;
+            height: 120px;
+            background: linear-gradient(180deg, transparent, rgba(0, 40, 224, 0.15), transparent);
+            transform: rotate(-20deg);
+            pointer-events: none;
+        }
+
+        .final-cta h2 {
+            font-family: var(--serif);
+            font-size: clamp(2rem, 4.5vw, 3.2rem);
+            font-weight: 400;
+            font-style: italic;
+            line-height: 1.15;
+            margin-bottom: 16px;
+            position: relative;
+        }
+        .final-cta h2 em { font-style: normal; color: var(--purple-light); }
+
+        .final-cta .btn { margin-top: 40px; }
+
+        /* ================================================================
+           FOOTER — original format
+           ================================================================ */
         .site-footer {
-            margin-top: 4rem;
-            padding-top: 2.5rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--text-secondary);
+            padding: 2.5rem 0;
+            border-top: 1px solid var(--rule);
+            color: var(--gray);
             font-size: 0.95rem;
             line-height: 1.6;
-            text-align: left;
         }
 
         .footer-grid {
             display: grid;
             grid-template-columns: minmax(260px, 1fr) minmax(260px, 1fr);
-            column-gap: 2.5rem;
-            row-gap: 0;
-            align-items: start;
+            column-gap: 2.5rem; row-gap: 0; align-items: start;
         }
 
-        .footer-line {
-            color: var(--text-primary);
-            font-weight: 600;
-            margin: 0;
-        }
+        .footer-line { color: var(--cream); font-weight: 600; margin: 0; }
+        .footer-line.is-normal { font-weight: 400; color: var(--cream-soft); }
+        .footer-line.is-normal strong { color: var(--cream); font-weight: 600; }
+        .footer-email { margin: 1rem 0 0; }
+        .footer-label { font-weight: 700; color: var(--cream); }
+        .footer-email .email-link { font-weight: 600; }
+        .email-link.compliance { color: #ef4444; }
+        .email-link.support { color: #facc15; }
+        .email-link.compliance:hover { color: #f87171; }
+        .email-link.support:hover { color: #fde047; }
 
-        .footer-line.is-normal {
-            font-weight: 400;
-        }
-
-        .footer-email {
-            margin: 1rem 0 0;
-        }
-
-        .footer-label {
-            font-weight: 700;
-            color: var(--text-primary);
-        }
-
-        .footer-email .email-link {
-            font-weight: 600;
-        }
-
-        .email-link.compliance {
-            color: #ef4444;
-        }
-
-        .email-link.support {
-            color: #facc15;
-        }
-
-        .email-link.compliance:hover {
-            color: #ef4444;
-        }
-
-        .email-link.support:hover {
-            color: #facc15;
-        }
-
-        .footer-left,
-        .footer-email-left {
-            grid-column: 1;
-            text-align: left;
-            justify-self: start;
-        }
-
-        .footer-right,
-        .footer-email-right {
-            grid-column: 2;
-            text-align: right;
-            justify-self: end;
-        }
-
-        .footer-title {
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-
-        .site-footer address {
-            font-style: normal;
-            margin-top: 0;
-        }
-
-        .footer-contact {
-            margin-top: 1rem;
-        }
-
-        .footer-contact + .footer-contact {
-            margin-top: 0.4rem;
-        }
-
-        .site-footer a {
-            color: var(--text-primary);
-            text-decoration: none;
-        }
-
-        .site-footer a:hover {
-            color: var(--accent-blue);
-        }
+        .footer-left, .footer-email-left { grid-column: 1; text-align: left; justify-self: start; }
+        .footer-right, .footer-email-right { grid-column: 2; text-align: right; justify-self: end; }
+        .footer-title { color: var(--cream); font-weight: 600; }
+        .site-footer address { margin-top: 0; color: var(--cream-soft); }
 
         .footer-socials {
             grid-column: 1 / -1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1.25rem;
-            margin-top: 1.75rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            display: flex; align-items: center; justify-content: center;
+            gap: 1.25rem; margin-top: 1.75rem; padding-top: 1.5rem;
+            border-top: 1px solid var(--rule);
         }
-
         .footer-socials a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 36px;
-            height: 36px;
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            color: var(--text-secondary);
-            transition: all 0.25s ease;
+            display: flex; align-items: center; justify-content: center;
+            width: 36px; height: 36px; border-radius: 8px;
+            background: rgba(255,255,255,0.03); border: 1px solid var(--rule);
+            color: var(--gray); transition: all 0.25s ease;
+        }
+        .footer-socials a:hover { color: var(--cream); border-color: var(--rule-hover); background: rgba(255,255,255,0.06); transform: translateY(-2px); }
+        .footer-socials svg { width: 18px; height: 18px; fill: currentColor; }
+
+        .footer-copy {
+            grid-column: 1 / -1; text-align: center;
+            margin-top: 1.25rem; font-size: 0.82rem; color: var(--muted);
         }
 
-        .footer-socials a:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.18);
-            color: var(--text-primary);
-            transform: translateY(-2px);
+        /* ================================================================
+           REVEALS
+           ================================================================ */
+        .reveal {
+            opacity: 0; transform: translateY(24px);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+        .stagger > * {
+            opacity: 0; transform: translateY(16px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .stagger.is-visible > * { opacity: 1; transform: translateY(0); }
+        .stagger.is-visible > *:nth-child(1) { transition-delay: 0.05s; }
+        .stagger.is-visible > *:nth-child(2) { transition-delay: 0.13s; }
+        .stagger.is-visible > *:nth-child(3) { transition-delay: 0.21s; }
+        .stagger.is-visible > *:nth-child(4) { transition-delay: 0.29s; }
+
+        .hero-enter {
+            opacity: 0; transform: translateY(20px);
+            animation: heroIn 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        .hero-enter:nth-child(2) { animation-delay: 0.12s; }
+        .hero-enter:nth-child(3) { animation-delay: 0.24s; }
+        .hero-enter:nth-child(4) { animation-delay: 0.36s; }
+        .hero-enter:nth-child(5) { animation-delay: 0.48s; }
+
+        @keyframes heroIn { to { opacity: 1; transform: translateY(0); } }
+
+        /* ================================================================
+           RESPONSIVE
+           ================================================================ */
+        @media (max-width: 960px) {
+            .storyboard { grid-template-columns: repeat(2, 1fr); }
+            .tool-feature { grid-template-columns: 1fr; padding: 32px; }
+            .tools-others, .plans-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
-        .footer-socials svg {
-            width: 18px;
-            height: 18px;
-            fill: currentColor;
-        }
+        @media (max-width: 640px) {
+            .nav { display: none; }
+            .hero { padding: 48px 0; min-height: auto; }
+            .hero h1 { font-size: 2.5rem; }
+            .section { padding: 80px 0; }
 
-        /* Responsive design */
-        @media (max-width: 768px) {
-            .tagline-hero {
-                margin-bottom: 2rem;
-            }
+            .storyboard { grid-template-columns: 1fr 1fr; gap: 12px; }
 
-            .tagline {
-                font-size: 1.25rem;
-                padding: 0 1rem;
-            }
+            .hero-ctas { flex-direction: column; align-items: stretch; max-width: 300px; margin: 0 auto; }
+            .hero-ctas .btn { justify-content: center; }
 
-            .logo {
-                width: 140px;
-                height: 140px;
-            }
+            .tools-others { grid-template-columns: 1fr; }
+            .plans-grid { grid-template-columns: 1fr; }
+            .topups-grid { grid-template-columns: 1fr; }
+            .pricing-controls { flex-direction: column; align-items: flex-start; }
 
-            .launch-badge {
-                font-size: 1rem;
-                padding: 0.875rem 1.5rem;
-            }
+            .final-cta { padding: 80px 0; }
 
-            .header-inner {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .header-actions {
-                width: 100%;
-                justify-content: flex-start;
-                flex-wrap: wrap;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .tools-section {
-                margin-top: 3rem;
-            }
-
-            .tools-header h2 {
-                font-size: 1.75rem;
-            }
-
-            .pricing-section {
-                margin-top: 3rem;
-            }
-
-            .pricing-header h2 {
-                font-size: 1.9rem;
-            }
-
-            .pricing-group-title,
-            .pricing-group-subtitle {
-                text-align: center;
-            }
-
-            .pricing-group-header {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-
-            .billing-toggle {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .pricing-card {
-                text-align: left;
-            }
-
-            .email-form {
-                flex-direction: column;
-            }
-
-            .notify-button {
-                width: 100%;
-            }
-        }
-
-        @media (max-width: 480px) {
-
-            .tagline {
-                font-size: 1.125rem;
-            }
-
-            .logo {
-                width: 120px;
-                height: 120px;
-            }
-
-            .pricing-header h2 {
-                font-size: 1.6rem;
-            }
-
-            .price-amount,
-            .price-discounted {
-                font-size: 1.75rem;
-            }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-right, .footer-email-right { grid-column: 1; text-align: left; justify-self: start; }
         }
     </style>
 </head>
 <body>
+
+    <!-- ─── HEADER ────────────────────────────────── -->
     <header class="site-header">
         <div class="header-inner">
             <a class="brand" href="#top">
-                <span class="brand-logo">
-                    <img src="assets/neo_cat.png" alt="DesignCat Logo">
-                </span>
+                <img src="assets/neo_cat.png" alt="DesignCat">
                 <span class="brand-name">DesignCat</span>
             </a>
-            <div class="header-actions">
-                <a class="header-button" href="#waitlist">Signup</a>
-                <a class="header-button primary" href="#waitlist">Login</a>
+            <nav class="nav">
+                <a href="#motion">Motion</a>
+                <a href="#toolkit">Tools</a>
+                <a href="#pricing">Pricing</a>
+            </nav>
+            <div class="hdr-ctas">
+                <a class="btn btn-ghost" href="https://app.designcat.io/auth/login">Log in</a>
+                <a class="btn btn-purple" href="https://app.designcat.io/auth/register">Get Started</a>
             </div>
         </div>
     </header>
-    <div class="page" id="top">
-        <div class="container">
-            <h3 class="tagline-hero">AI Design Suite for Businesses and Solopreneurs</h3>
 
-            <div class="launch-badge">
-                Launching Feb 2026
+    <!-- ─── HERO ──────────────────────────────────── -->
+    <section class="hero" id="top">
+        <div class="wrap">
+            <p class="hero-eyebrow hero-enter">AI Design Suite for Businesses &amp; Solopreneurs</p>
+
+            <h1 class="hero-enter">We handle the <em>craft</em>.<br>You tell the story.</h1>
+
+            <p class="hero-sub hero-enter">
+                Five purpose-built creative tools, intuitive by default.
+                A straight line from idea to finished asset.
+                Everything a creator needs&thinsp;&mdash;&thinsp;nothing they don't.
+            </p>
+
+            <div class="hero-ctas hero-enter">
+                <a class="btn btn-purple btn-lg" href="https://app.designcat.io/auth/register">
+                    Start Creating
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.33 8h9.34"/><path d="M8.67 4 12.67 8l-4 4"/></svg>
+                </a>
+                <a class="btn btn-outline btn-lg" href="#pricing">See Pricing</a>
             </div>
-
-            <section class="tools-section" id="tools">
-                <div class="tools-carousel" aria-label="DesignCat tools">
-                    <article class="tool-card">
-                        <div class="tool-icon">
-                            <img src="assets/tool_motion.svg" alt="Motion icon">
-                        </div>
-                        <p class="tool-name">Motion</p>
-                        <p class="tool-desc">Studio-quality videos in minutes</p>
-                        <p class="tool-date">Feb 2026</p>
-                    </article>
-                    <article class="tool-card">
-                        <div class="tool-icon">
-                            <img src="assets/tool_experimentation.svg" alt="Sandbox icon">
-                        </div>
-                        <p class="tool-name">Sandbox</p>
-                        <p class="tool-desc">Explore latest GenAI models</p>
-                        <p class="tool-date">Mar 2026</p>
-                    </article>
-                    <article class="tool-card">
-                        <div class="tool-icon">
-                            <img src="assets/tool_image.svg" alt="Image icon">
-                        </div>
-                        <p class="tool-name">Image</p>
-                        <p class="tool-desc">Image editing with AI</p>
-                        <p class="tool-date">Mar 2026</p>
-                    </article>
-                    <article class="tool-card">
-                        <div class="tool-icon">
-                            <img src="assets/tool_engage.svg" alt="Engage icon">
-                        </div>
-                        <p class="tool-name">Engage</p>
-                        <p class="tool-desc">Copilot for Linkedin/X content creator</p>
-                        <p class="tool-date">April 2026</p>
-                    </article>
-                    <article class="tool-card">
-                        <div class="tool-icon">
-                            <img src="assets/tool_persuade.svg" alt="Slides icon">
-                        </div>
-                        <p class="tool-name">Slides</p>
-                        <p class="tool-desc">Create slides that persuade</p>
-                        <p class="tool-date">June 2026</p>
-                    </article>
-                </div>
-            </section>
-
-            <section class="pricing-section" id="pricing">
-                <div class="pricing-header">
-                    <h2>Flexible pricing for every team</h2>
-                    <p>Subscriptions include monthly API credits, and topups let you scale as needed.</p>
-                </div>
-
-                <div class="pricing-group">
-                    <div class="pricing-group-header">
-                        <div>
-                            <h3 class="pricing-group-title">Subscriptions</h3>
-                            <p class="pricing-group-subtitle">Choose monthly or annual billing. Unused credits reset every month.</p>
-                        </div>
-                        <div class="billing-toggle" role="tablist" aria-label="Billing cycle">
-                            <button class="toggle-button is-active" type="button" data-plan="monthly" role="tab" aria-selected="true" aria-controls="plans-monthly">
-                                Monthly
-                            </button>
-                            <button class="toggle-button" type="button" data-plan="annual" role="tab" aria-selected="false" aria-controls="plans-annual">
-                                Annually
-                            </button>
-                        </div>
-                    </div>
-                    <div class="pricing-cards" id="plans-monthly" data-plan-content="monthly" role="tabpanel">
-                        <article class="pricing-card">
-                            <p class="plan-name">Starter</p>
-                            <p class="price">
-                                <span class="price-amount">$14</span>
-                                <span class="price-term">/mo</span>
-                            </p>
-                            <p class="credits">5,000 API credits/mo</p>
-                            <a class="plan-button" href="#waitlist">Join the waitlist</a>
-                        </article>
-                        <article class="pricing-card">
-                            <p class="plan-name">Growth</p>
-                            <p class="price">
-                                <span class="price-amount">$29</span>
-                                <span class="price-term">/mo</span>
-                            </p>
-                            <p class="credits">13,000 API credits/mo</p>
-                            <a class="plan-button" href="#waitlist">Join the waitlist</a>
-                        </article>
-                        <article class="pricing-card">
-                            <p class="plan-name">Scale</p>
-                            <p class="price">
-                                <span class="price-amount">$56</span>
-                                <span class="price-term">/mo</span>
-                            </p>
-                            <p class="credits">26,000 API credits/mo</p>
-                            <a class="plan-button" href="#waitlist">Join the waitlist</a>
-                        </article>
-                        <article class="pricing-card">
-                            <p class="plan-name">Pro</p>
-                            <p class="price">
-                                <span class="price-amount">$200</span>
-                                <span class="price-term">/mo</span>
-                            </p>
-                            <p class="credits">100,000 API credits/mo</p>
-                            <a class="plan-button" href="#waitlist">Join the waitlist</a>
-                        </article>
-                    </div>
-                    <div class="pricing-cards is-hidden" id="plans-annual" data-plan-content="annual" role="tabpanel">
-                        <article class="pricing-card">
-                            <p class="plan-name">Starter</p>
-                            <p class="price">
-                                <span class="price-original">$14</span>
-                                <span class="price-discounted">$9.80</span>
-                                <span class="price-term">/mo</span>
-                                <span class="discount-badge">-30%</span>
-                            </p>
-                            <p class="credits">5,000 API credits/mo</p>
-                            <a class="plan-button" href="#waitlist">Join the waitlist</a>
-                        </article>
-                        <article class="pricing-card">
-                            <p class="plan-name">Growth</p>
-                            <p class="price">
-                                <span class="price-original">$29</span>
-                                <span class="price-discounted">$20.30</span>
-                                <span class="price-term">/mo</span>
-                                <span class="discount-badge">-30%</span>
-                            </p>
-                            <p class="credits">13,000 API credits/mo</p>
-                            <a class="plan-button" href="#waitlist">Join the waitlist</a>
-                        </article>
-                        <article class="pricing-card">
-                            <p class="plan-name">Scale</p>
-                            <p class="price">
-                                <span class="price-original">$56</span>
-                                <span class="price-discounted">$39.20</span>
-                                <span class="price-term">/mo</span>
-                                <span class="discount-badge">-30%</span>
-                            </p>
-                            <p class="credits">26,000 API credits/mo</p>
-                            <a class="plan-button" href="#waitlist">Join the waitlist</a>
-                        </article>
-                        <article class="pricing-card">
-                            <p class="plan-name">Pro</p>
-                            <p class="price">
-                                <span class="price-original">$200</span>
-                                <span class="price-discounted">$140.00</span>
-                                <span class="price-term">/mo</span>
-                                <span class="discount-badge">-30%</span>
-                            </p>
-                            <p class="credits">100,000 API credits/mo</p>
-                            <a class="plan-button" href="#waitlist">Join the waitlist</a>
-                        </article>
-                    </div>
-                </div>
-
-                <div class="pricing-group">
-                    <h3 class="pricing-group-title">API credit topup</h3>
-                    <p class="pricing-group-subtitle">One-time credit packs. Topup credits never expire.</p>
-                    <div class="pricing-cards">
-                        <article class="pricing-card">
-                            <p class="price">
-                                <span class="price-amount">$3</span>
-                            </p>
-                            <p class="credits">1,000 API credits</p>
-                            <a class="plan-button" href="#waitlist">Join the waitlist</a>
-                        </article>
-                        <article class="pricing-card">
-                            <p class="price">
-                                <span class="price-amount">$15</span>
-                            </p>
-                            <p class="credits">6,000 API credits</p>
-                            <a class="plan-button" href="#waitlist">Join the waitlist</a>
-                        </article>
-                        <article class="pricing-card">
-                            <p class="price">
-                                <span class="price-amount">$30</span>
-                            </p>
-                            <p class="credits">13,000 API credits</p>
-                            <a class="plan-button" href="#waitlist">Join the waitlist</a>
-                        </article>
-                    </div>
-                </div>
-            </section>
-
-            <div class="notify-section" id="waitlist">
-                <p class="notify-text">Get notified when we launch</p>
-                <form class="email-form" id="notifyForm" onsubmit="handleSubmit(event)">
-                    <input 
-                        type="email" 
-                        class="email-input" 
-                        name="email"
-                        placeholder="Enter your work email"
-                    required
-                        id="emailInput"
-                    >
-                    <button type="submit" class="notify-button" id="submitBtn">Notify Me</button>
-                </form>
-                <p id="formMessage" style="margin-top: 1rem; font-size: 0.875rem; color: var(--accent-purple);"></p>
-            </div>
-
-            <footer class="site-footer">
-                <div class="footer-grid">
-                    <p class="footer-line footer-left">Compliance-first by design.</p>
-                    <div class="footer-title footer-right">DesignCat Technologies LLC</div>
-                    <p class="footer-line is-normal footer-left">Built by a team with hands-on <strong>CCPA</strong>, <strong>GDPR</strong> & <strong>ISO 27001</strong> experience.</p>
-                    <address class="footer-right">
-                        28 Geary St STE 650, 519, San Francisco, CA 94108
-                    </address>
-                    <p class="footer-email footer-email-left"><span class="footer-label">Compliance</span>: <a class="email-link compliance" href="mailto:compliance@designcat.io">compliance@designcat.io</a></p>
-                    <p class="footer-email footer-email-right"><span class="footer-label">Support</span>: <a class="email-link support" href="mailto:founders@designcat.io">founders@designcat.io</a></p>
-                    <div class="footer-socials" aria-label="Social media">
-                        <a href="https://www.linkedin.com/company/designcat" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                        </a>
-                        <a href="https://x.com/designcatio" target="_blank" rel="noopener noreferrer" aria-label="X">
-                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932L18.901 1.153zm-1.288 19.494h2.039L6.486 3.239H4.298L17.613 20.647z"/></svg>
-                        </a>
-                        <a href="https://www.youtube.com/@designcatio" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                        </a>
-                        <a href="https://www.instagram.com/designcatio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 100 12.324 6.162 6.162 0 100-12.324zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405a1.441 1.441 0 11-2.88 0 1.441 1.441 0 012.88 0z"/></svg>
-                        </a>
-                        <a href="https://www.tiktok.com/@getdesigncat" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
-                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
-                        </a>
-                    </div>
-                </div>
-            </footer>
         </div>
-    </div>
+    </section>
 
+    <!-- ─── MOTION DEEP-DIVE ──────────────────────── -->
+    <section class="section" id="motion">
+        <div class="wrap">
+            <div class="motion-header reveal">
+                <p class="tag">Starting with Motion</p>
+                <h2 class="sec-title">From storyboard to final cut</h2>
+                <p class="sec-desc">
+                    Upload photos and brand assets. Add AI-generated characters and elements.
+                    Build scenes with plain-language prompts. Generate video, add music
+                    and dialogue, export. A complete production pipeline in one tool.
+                </p>
+            </div>
+
+            <!-- 4-panel storyboard -->
+            <div class="storyboard stagger reveal">
+                <div class="sb-panel">
+                    <div class="sb-frame">
+                        <span class="sb-num">1</span>
+                        <span class="sb-label">your real photos</span>
+                    </div>
+                    <div class="sb-caption">
+                        <p>Upload product shots, brand photos, raw assets. The AI builds on your real content.</p>
+                    </div>
+                </div>
+                <div class="sb-panel">
+                    <div class="sb-frame">
+                        <span class="sb-num">2</span>
+                        <span class="sb-label">+ AI elements</span>
+                    </div>
+                    <div class="sb-caption">
+                        <p>Add AI-generated characters, props, and atmosphere. Seamless compositing.</p>
+                    </div>
+                </div>
+                <div class="sb-panel">
+                    <div class="sb-frame">
+                        <span class="sb-num">3</span>
+                        <span class="sb-label">build your scenes</span>
+                    </div>
+                    <div class="sb-caption">
+                        <p>Write what happens in each scene. AI generates matching visuals from your prompts and assets.</p>
+                    </div>
+                </div>
+                <div class="sb-panel">
+                    <div class="sb-frame">
+                        <span class="sb-num">4</span>
+                        <span class="sb-label">generate &amp; export</span>
+                    </div>
+                    <div class="sb-caption">
+                        <p>Video clips, music, dialogue. One click each. Export the finished cut.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The result -->
+            <div class="film-result reveal">
+                <div class="film-frame">
+                    <span>The finished video</span>
+                </div>
+                <p class="film-caption">
+                    <strong>Production-quality</strong> output. Built in an afternoon.
+                </p>
+            </div>
+
+            <div class="motion-cta reveal">
+                <a class="btn btn-purple btn-lg" href="https://app.designcat.io/auth/register">Try Motion</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── FULL TOOLKIT — v3 card system ─────────── -->
+    <section class="section" id="toolkit">
+        <div class="wrap">
+            <div class="toolkit-header reveal">
+                <p class="tag">Creative toolkit</p>
+                <h2 class="sec-title">Five disciplines. One studio.</h2>
+                <p class="sec-desc">Each tool is purpose-built for a different kind of creative work. We obsessed over the details so you don't have to.</p>
+            </div>
+
+            <!-- Motion: featured card -->
+            <div class="tool-feature reveal">
+                <div class="tf-info">
+                    <div class="tf-icon"><img src="assets/tool_motion.svg" alt="Motion"></div>
+                    <h3>Motion <span class="tf-badge">Live</span></h3>
+                    <p>
+                        The flagship. Write scenes in plain language, generate images from prompts
+                        and brand assets, turn them into video, layer in music and dialogue, and
+                        export the finished cut. A full video production pipeline.
+                    </p>
+                    <a class="btn btn-purple" href="https://app.designcat.io/auth/register">Try Motion</a>
+                </div>
+                <div class="tf-visual">
+                    <span>product screenshot</span>
+                </div>
+            </div>
+
+            <!-- Other tools: 4-card grid -->
+            <div class="tools-others stagger reveal">
+                <article class="tool-other">
+                    <span class="tool-other-soon">Soon</span>
+                    <div class="tool-other-icon"><img src="assets/tool_image.svg" alt="Image"></div>
+                    <h4>Image</h4>
+                    <p>Generate, edit, and enhance images with AI.</p>
+                </article>
+                <article class="tool-other">
+                    <span class="tool-other-soon">Soon</span>
+                    <div class="tool-other-icon"><img src="assets/tool_experimentation.svg" alt="Sandbox"></div>
+                    <h4>Sandbox</h4>
+                    <p>Explore the latest generative AI models.</p>
+                </article>
+                <article class="tool-other">
+                    <span class="tool-other-soon">Soon</span>
+                    <div class="tool-other-icon"><img src="assets/tool_engage.svg" alt="Engage"></div>
+                    <h4>Engage</h4>
+                    <p>Copilot for LinkedIn and X creators.</p>
+                </article>
+                <article class="tool-other">
+                    <span class="tool-other-soon">Soon</span>
+                    <div class="tool-other-icon"><img src="assets/tool_persuade.svg" alt="Slides"></div>
+                    <h4>Slides</h4>
+                    <p>Decks that persuade and tell a story.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── PRICING ───────────────────────────────── -->
+    <section class="section pricing-section" id="pricing">
+        <div class="wrap">
+            <div class="pricing-top reveal">
+                <p class="tag">Pricing</p>
+                <h2>Simple plans, no surprises</h2>
+                <p>Monthly credits. Annual discounts. Top up when you need more.</p>
+            </div>
+
+            <div class="pricing-controls reveal">
+                <div>
+                    <h3>Subscriptions</h3>
+                    <p class="pricing-controls-sub">Unused credits reset monthly.</p>
+                </div>
+                <div class="toggle-wrap" role="tablist">
+                    <button class="toggle-btn is-active" data-plan="monthly" role="tab" aria-selected="true">Monthly</button>
+                    <button class="toggle-btn" data-plan="annual" role="tab" aria-selected="false">Annually</button>
+                </div>
+            </div>
+
+            <!-- Monthly -->
+            <div class="plans-grid stagger reveal" id="plans-monthly" data-plan-content="monthly" role="tabpanel">
+                <article class="plan-card">
+                    <p class="plan-name">Starter</p>
+                    <div class="plan-price"><span class="plan-amount">$14</span><span class="plan-term">/mo</span></div>
+                    <p class="plan-credits">5,000 API credits/mo</p>
+                    <a class="btn btn-outline" href="https://app.designcat.io/auth/register">Get started</a>
+                </article>
+                <article class="plan-card is-featured">
+                    <p class="plan-name">Growth</p>
+                    <div class="plan-price"><span class="plan-amount">$29</span><span class="plan-term">/mo</span></div>
+                    <p class="plan-credits">13,000 API credits/mo</p>
+                    <a class="btn btn-purple" href="https://app.designcat.io/auth/register">Get started</a>
+                </article>
+                <article class="plan-card">
+                    <p class="plan-name">Scale</p>
+                    <div class="plan-price"><span class="plan-amount">$56</span><span class="plan-term">/mo</span></div>
+                    <p class="plan-credits">26,000 API credits/mo</p>
+                    <a class="btn btn-outline" href="https://app.designcat.io/auth/register">Get started</a>
+                </article>
+                <article class="plan-card">
+                    <p class="plan-name">Pro</p>
+                    <div class="plan-price"><span class="plan-amount">$200</span><span class="plan-term">/mo</span></div>
+                    <p class="plan-credits">100,000 API credits/mo</p>
+                    <a class="btn btn-outline" href="https://app.designcat.io/auth/register">Get started</a>
+                </article>
+            </div>
+
+            <!-- Annual -->
+            <div class="plans-grid is-hidden stagger reveal" id="plans-annual" data-plan-content="annual" role="tabpanel">
+                <article class="plan-card">
+                    <p class="plan-name">Starter</p>
+                    <div class="plan-price"><span class="plan-og">$14</span><span class="plan-amount">$9.80</span><span class="plan-term">/mo</span><span class="plan-save">-30%</span></div>
+                    <p class="plan-credits">5,000 API credits/mo</p>
+                    <a class="btn btn-outline" href="https://app.designcat.io/auth/register">Get started</a>
+                </article>
+                <article class="plan-card is-featured">
+                    <p class="plan-name">Growth</p>
+                    <div class="plan-price"><span class="plan-og">$29</span><span class="plan-amount">$20.30</span><span class="plan-term">/mo</span><span class="plan-save">-30%</span></div>
+                    <p class="plan-credits">13,000 API credits/mo</p>
+                    <a class="btn btn-purple" href="https://app.designcat.io/auth/register">Get started</a>
+                </article>
+                <article class="plan-card">
+                    <p class="plan-name">Scale</p>
+                    <div class="plan-price"><span class="plan-og">$56</span><span class="plan-amount">$39.20</span><span class="plan-term">/mo</span><span class="plan-save">-30%</span></div>
+                    <p class="plan-credits">26,000 API credits/mo</p>
+                    <a class="btn btn-outline" href="https://app.designcat.io/auth/register">Get started</a>
+                </article>
+                <article class="plan-card">
+                    <p class="plan-name">Pro</p>
+                    <div class="plan-price"><span class="plan-og">$200</span><span class="plan-amount">$140</span><span class="plan-term">/mo</span><span class="plan-save">-30%</span></div>
+                    <p class="plan-credits">100,000 API credits/mo</p>
+                    <a class="btn btn-outline" href="https://app.designcat.io/auth/register">Get started</a>
+                </article>
+            </div>
+
+            <div class="topups-block reveal">
+                <h3>API credit topup</h3>
+                <p>One-time packs. Credits never expire.</p>
+                <div class="topups-grid stagger reveal">
+                    <article class="plan-card">
+                        <div class="plan-price"><span class="plan-amount">$3</span></div>
+                        <p class="plan-credits">1,000 API credits</p>
+                        <a class="btn btn-outline" href="https://app.designcat.io/auth/register">Buy credits</a>
+                    </article>
+                    <article class="plan-card">
+                        <div class="plan-price"><span class="plan-amount">$15</span></div>
+                        <p class="plan-credits">6,000 API credits</p>
+                        <a class="btn btn-outline" href="https://app.designcat.io/auth/register">Buy credits</a>
+                    </article>
+                    <article class="plan-card">
+                        <div class="plan-price"><span class="plan-amount">$30</span></div>
+                        <p class="plan-credits">13,000 API credits</p>
+                        <a class="btn btn-outline" href="https://app.designcat.io/auth/register">Buy credits</a>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── FINAL CTA ─────────────────────────────── -->
+    <section class="final-cta reveal">
+        <div class="wrap">
+            <h2>Your next project deserves<br>better tools.</h2>
+            <a class="btn btn-purple btn-lg" href="https://app.designcat.io/auth/register">
+                Start Creating
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.33 8h9.34"/><path d="M8.67 4 12.67 8l-4 4"/></svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- ─── FOOTER ────────────────────────────────── -->
+    <footer class="site-footer">
+        <div class="wrap">
+            <div class="footer-grid">
+                <p class="footer-line footer-left">Compliance-first by design.</p>
+                <div class="footer-title footer-right">DesignCat Technologies LLC</div>
+                <p class="footer-line is-normal footer-left">Built by a team with hands-on <strong>CCPA</strong>, <strong>GDPR</strong> &amp; <strong>ISO 27001</strong> experience.</p>
+                <address class="footer-right">
+                    28 Geary St STE 650, 519, San Francisco, CA 94108
+                </address>
+                <p class="footer-email footer-email-left"><span class="footer-label">Compliance</span>: <a class="email-link compliance" href="mailto:compliance@designcat.io">compliance@designcat.io</a></p>
+                <p class="footer-email footer-email-right"><span class="footer-label">Support</span>: <a class="email-link support" href="mailto:founders@designcat.io">founders@designcat.io</a></p>
+                <div class="footer-socials" aria-label="Social media">
+                    <a href="https://www.linkedin.com/company/designcat" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+                    <a href="https://x.com/designcatio" target="_blank" rel="noopener noreferrer" aria-label="X"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932L18.901 1.153zm-1.288 19.494h2.039L6.486 3.239H4.298L17.613 20.647z"/></svg></a>
+                    <a href="https://www.youtube.com/@designcatio" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+                    <a href="https://www.instagram.com/designcatio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 100 12.324 6.162 6.162 0 100-12.324zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405a1.441 1.441 0 11-2.88 0 1.441 1.441 0 012.88 0z"/></svg></a>
+                    <a href="https://www.tiktok.com/@getdesigncat" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+                </div>
+                <p class="footer-copy">&copy; 2026 DesignCat Technologies LLC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ─── SCRIPTS ───────────────────────────────── -->
     <script>
-        // Configuration - Google Sheets Integration
-        const FORM_METHOD = 'google-sheets';
-        
-        // GOOGLE SHEETS SETUP:
-        // 1. Create a Google Sheet with headers: Timestamp | Email
-        // 2. Go to Extensions → Apps Script
-        // 3. Copy the code from google-script.js file
-        // 4. Deploy as Web App (Execute as: Me, Access: Anyone)
-        // 5. Paste your Web App URL below
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzwHzcbNTFL9EgIL7XNim_1TY2gmz8fe_OoHcowhSHLckaO9kczE_-phSl6s8mQWKA/exec'; // Paste your deployed script URL here
-
-        function setupBillingToggle() {
-            const pricingSection = document.querySelector('.pricing-section');
-            if (!pricingSection) {
-                return;
+        (function () {
+            var btns = document.querySelectorAll('.toggle-wrap [data-plan]');
+            var pans = document.querySelectorAll('[data-plan-content]');
+            function set(plan) {
+                btns.forEach(function (b) {
+                    var on = b.getAttribute('data-plan') === plan;
+                    b.classList.toggle('is-active', on);
+                    b.setAttribute('aria-selected', on ? 'true' : 'false');
+                });
+                pans.forEach(function (p) {
+                    p.classList.toggle('is-hidden', p.getAttribute('data-plan-content') !== plan);
+                });
             }
-
-            const buttons = pricingSection.querySelectorAll('[data-plan]');
-            const panels = pricingSection.querySelectorAll('[data-plan-content]');
-
-            if (!buttons.length || !panels.length) {
-                return;
-            }
-
-            const setActivePlan = (plan) => {
-                buttons.forEach((button) => {
-                    const isActive = button.dataset.plan === plan;
-                    button.classList.toggle('is-active', isActive);
-                    button.setAttribute('aria-selected', isActive ? 'true' : 'false');
-                });
-
-                panels.forEach((panel) => {
-                    const isActive = panel.dataset.planContent === plan;
-                    panel.classList.toggle('is-hidden', !isActive);
-                });
-            };
-
-            buttons.forEach((button) => {
-                button.addEventListener('click', () => {
-                    setActivePlan(button.dataset.plan);
-                });
+            btns.forEach(function (b) {
+                b.addEventListener('click', function () { set(b.getAttribute('data-plan')); });
             });
+        })();
 
-            setActivePlan('monthly');
-        }
-
-        setupBillingToggle();
-
-        async function handleSubmit(event) {
-            event.preventDefault();
-            const email = document.getElementById('emailInput').value;
-            const submitBtn = document.getElementById('submitBtn');
-            const formMessage = document.getElementById('formMessage');
-            
-            // Disable button during submission
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Sending...';
-            formMessage.textContent = '';
-
-            try {
-                if (FORM_METHOD === 'google-sheets') {
-                    // Google Sheets integration
-                    if (GOOGLE_SCRIPT_URL === 'YOUR_GOOGLE_SCRIPT_URL') {
-                        throw new Error('Please configure your Google Script URL first. See README.md for instructions.');
-                    }
-
-                    const response = await fetch(GOOGLE_SCRIPT_URL, {
-                        method: 'POST',
-                        mode: 'no-cors',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({ 
-                            email: email,
-                            timestamp: new Date().toISOString()
-                        })
-                    });
-                    
-                    // Note: no-cors mode means we can't read the response, but the data is sent
-                    formMessage.style.color = 'var(--accent-purple)';
-                    formMessage.textContent = '✓ Thanks! We\'ll notify you when we launch.';
-                    document.getElementById('emailInput').value = '';
-                }
-            } catch (error) {
-                formMessage.style.color = '#ef4444';
-                if (error.message.includes('configure')) {
-                    formMessage.textContent = '⚠ Please configure Google Sheets integration first.';
-                } else {
-                    formMessage.textContent = '✗ Oops! Something went wrong. Please try again.';
-                }
-                console.error('Error:', error);
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Notify Me';
-            }
-        }
+        (function () {
+            var els = document.querySelectorAll('.reveal');
+            if (!els.length) return;
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (e) {
+                    if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
+                });
+            }, { threshold: 0.08 });
+            els.forEach(function (el) { io.observe(el); });
+        })();
     </script>
+
 </body>
 </html>
-
