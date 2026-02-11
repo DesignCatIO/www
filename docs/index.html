@@ -22,17 +22,33 @@
 
     <link rel="icon" type="image/png" href="assets/neo_cat.png">
 
-    <!-- Fonts: Playfair Display (luxe editorial serif) + Sora (clean body) -->
+    <!-- Fonts: Inconsolata (headline) via Google Fonts, Terminus (body) self-hosted -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Sora:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
+        /* ── Self-hosted Terminus ───────────────────────── */
+        @font-face {
+            font-family: 'Terminus';
+            src: url('assets/fonts/TerminusTTF.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Terminus';
+            src: url('assets/fonts/TerminusTTF-Bold.ttf') format('truetype');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
         /* ================================================================
            V6 — "THE ATELIER"
            ================================================================
-           Electric blue (#0028E0) on deep charcoal. Playfair Display
-           for headlines, Sora for body.
+           Electric blue (#0028E0) on deep charcoal. Inconsolata
+           for headlines, Terminus for body.
 
            Layout: v3 toolkit card system (Motion featured card with
            screenshot placeholder + 4 "coming soon" cards in grid).
@@ -68,8 +84,8 @@
             --rule: #1e2030;
             --rule-hover: #2e3048;
 
-            --serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
-            --sans: 'Sora', ui-sans-serif, system-ui, sans-serif;
+            --serif: 'Inconsolata', 'Courier New', monospace;
+            --sans: 'Inconsolata', 'Courier New', monospace;
 
             --max-w: 1060px;
             --px: 28px;
@@ -230,43 +246,47 @@
             font-weight: 600;
             letter-spacing: 0.22em;
             text-transform: uppercase;
-            color: var(--purple-light);
+            color: #FF0000;
             margin-bottom: 32px;
         }
 
-        .hero h1 {
-            font-family: var(--serif);
-            font-size: clamp(3rem, 6.5vw, 5.2rem);
-            font-weight: 400;
-            font-style: italic;
+        .hero-line1 {
+            font-family: var(--sans);
+            font-size: clamp(2.4rem, 5vw, 4rem);
+            font-weight: 700;
             letter-spacing: -0.015em;
-            line-height: 1.08;
+            line-height: 1.15;
+            margin-bottom: 96px;
+        }
+
+        .hero-line1 em {
+            font-style: normal;
+            color: var(--purple);
+        }
+
+        .hero-no {
+            color: #FF0000;
+        }
+
+        .hero-line2 {
+            font-family: var(--sans);
+            font-size: clamp(2.4rem, 5vw, 4rem);
+            font-weight: 400;
+            letter-spacing: -0.015em;
+            line-height: 1.15;
             margin-bottom: 28px;
         }
 
-        .hero h1 em {
+        .hero-line2 em {
             font-style: normal;
-            color: var(--purple-light);
-            position: relative;
-        }
-
-        /* Subtle underline accent on "craft" */
-        .hero h1 em::after {
-            content: '';
-            position: absolute;
-            left: 0; right: 0;
-            bottom: 2px;
-            height: 3px;
-            background: var(--purple);
-            border-radius: 2px;
-            opacity: 0.6;
+            color: var(--purple);
         }
 
         .hero-sub {
+            display: none;
             font-size: clamp(0.92rem, 1.4vw, 1.02rem);
             font-weight: 300;
             color: var(--cream-soft);
-            max-width: 520px;
             margin: 0 auto 44px;
             line-height: 1.85;
         }
@@ -707,10 +727,9 @@
         }
 
         .final-cta h2 {
-            font-family: var(--serif);
+            font-family: var(--sans);
             font-size: clamp(2rem, 4.5vw, 3.2rem);
             font-weight: 400;
-            font-style: italic;
             line-height: 1.15;
             margin-bottom: 16px;
             position: relative;
@@ -861,13 +880,9 @@
         <div class="wrap">
             <p class="hero-eyebrow hero-enter">AI Design Suite for Businesses &amp; Solopreneurs</p>
 
-            <h1 class="hero-enter">We handle the <em>craft</em>.<br>You tell the story.</h1>
+            <h1 class="hero-line1 hero-enter">Materialize your <em>ideas</em>,<br><span class="hero-no">no</span> AI slop.</h1>
 
-            <p class="hero-sub hero-enter">
-                Five purpose-built creative tools, intuitive by default.
-                A straight line from idea to finished asset.
-                Everything a creator needs&thinsp;&mdash;&thinsp;nothing they don't.
-            </p>
+            <p class="hero-sub hero-enter">With purpose-built creative tools. Everything you need&thinsp;&mdash;&thinsp;nothing you don't.</p>
 
             <div class="hero-ctas hero-enter">
                 <a class="btn btn-purple btn-lg" href="https://app.designcat.io/auth/register">
@@ -875,6 +890,62 @@
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.33 8h9.34"/><path d="M8.67 4 12.67 8l-4 4"/></svg>
                 </a>
                 <a class="btn btn-outline btn-lg" href="#pricing">See Pricing</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── FULL TOOLKIT — v3 card system ─────────── -->
+    <section class="section" id="toolkit">
+        <div class="wrap">
+            <div class="toolkit-header reveal">
+                <p class="tag">Creative toolkit</p>
+                <h2 class="sec-title">Five disciplines. One studio.</h2>
+                <p class="sec-desc">Each tool is purpose-built for a different kind of creative work. We obsessed over the details so you don't have to.</p>
+            </div>
+
+            <!-- Motion: featured card -->
+            <div class="tool-feature reveal">
+                <div class="tf-info">
+                    <div class="tf-icon"><img src="assets/tool_motion.svg" alt="Motion"></div>
+                    <h3>Motion <span class="tf-badge">Live</span></h3>
+                    <p>
+                        The flagship. Write scenes in plain language, generate images from prompts
+                        and brand assets, turn them into video, layer in music and dialogue, and
+                        export the finished cut. A full video production pipeline.
+                    </p>
+                    <a class="btn btn-purple" href="https://app.designcat.io/auth/register">Try Motion</a>
+                </div>
+                <div class="tf-visual">
+                    <span>product screenshot</span>
+                </div>
+            </div>
+
+            <!-- Other tools: 4-card grid -->
+            <div class="tools-others stagger reveal">
+                <article class="tool-other">
+                    <span class="tool-other-soon">Soon</span>
+                    <div class="tool-other-icon"><img src="assets/tool_image.svg" alt="Image"></div>
+                    <h4>Image</h4>
+                    <p>Generate, edit, and enhance images with AI.</p>
+                </article>
+                <article class="tool-other">
+                    <span class="tool-other-soon">Soon</span>
+                    <div class="tool-other-icon"><img src="assets/tool_experimentation.svg" alt="Sandbox"></div>
+                    <h4>Sandbox</h4>
+                    <p>Explore the latest generative AI models.</p>
+                </article>
+                <article class="tool-other">
+                    <span class="tool-other-soon">Soon</span>
+                    <div class="tool-other-icon"><img src="assets/tool_engage.svg" alt="Engage"></div>
+                    <h4>Engage</h4>
+                    <p>Copilot for LinkedIn and X creators.</p>
+                </article>
+                <article class="tool-other">
+                    <span class="tool-other-soon">Soon</span>
+                    <div class="tool-other-icon"><img src="assets/tool_persuade.svg" alt="Slides"></div>
+                    <h4>Slides</h4>
+                    <p>Decks that persuade and tell a story.</p>
+                </article>
             </div>
         </div>
     </section>
@@ -948,62 +1019,6 @@
         </div>
     </section>
 
-    <!-- ─── FULL TOOLKIT — v3 card system ─────────── -->
-    <section class="section" id="toolkit">
-        <div class="wrap">
-            <div class="toolkit-header reveal">
-                <p class="tag">Creative toolkit</p>
-                <h2 class="sec-title">Five disciplines. One studio.</h2>
-                <p class="sec-desc">Each tool is purpose-built for a different kind of creative work. We obsessed over the details so you don't have to.</p>
-            </div>
-
-            <!-- Motion: featured card -->
-            <div class="tool-feature reveal">
-                <div class="tf-info">
-                    <div class="tf-icon"><img src="assets/tool_motion.svg" alt="Motion"></div>
-                    <h3>Motion <span class="tf-badge">Live</span></h3>
-                    <p>
-                        The flagship. Write scenes in plain language, generate images from prompts
-                        and brand assets, turn them into video, layer in music and dialogue, and
-                        export the finished cut. A full video production pipeline.
-                    </p>
-                    <a class="btn btn-purple" href="https://app.designcat.io/auth/register">Try Motion</a>
-                </div>
-                <div class="tf-visual">
-                    <span>product screenshot</span>
-                </div>
-            </div>
-
-            <!-- Other tools: 4-card grid -->
-            <div class="tools-others stagger reveal">
-                <article class="tool-other">
-                    <span class="tool-other-soon">Soon</span>
-                    <div class="tool-other-icon"><img src="assets/tool_image.svg" alt="Image"></div>
-                    <h4>Image</h4>
-                    <p>Generate, edit, and enhance images with AI.</p>
-                </article>
-                <article class="tool-other">
-                    <span class="tool-other-soon">Soon</span>
-                    <div class="tool-other-icon"><img src="assets/tool_experimentation.svg" alt="Sandbox"></div>
-                    <h4>Sandbox</h4>
-                    <p>Explore the latest generative AI models.</p>
-                </article>
-                <article class="tool-other">
-                    <span class="tool-other-soon">Soon</span>
-                    <div class="tool-other-icon"><img src="assets/tool_engage.svg" alt="Engage"></div>
-                    <h4>Engage</h4>
-                    <p>Copilot for LinkedIn and X creators.</p>
-                </article>
-                <article class="tool-other">
-                    <span class="tool-other-soon">Soon</span>
-                    <div class="tool-other-icon"><img src="assets/tool_persuade.svg" alt="Slides"></div>
-                    <h4>Slides</h4>
-                    <p>Decks that persuade and tell a story.</p>
-                </article>
-            </div>
-        </div>
-    </section>
-
     <!-- ─── PRICING ───────────────────────────────── -->
     <section class="section pricing-section" id="pricing">
         <div class="wrap">
@@ -1016,7 +1031,7 @@
             <div class="pricing-controls reveal">
                 <div>
                     <h3>Subscriptions</h3>
-                    <p class="pricing-controls-sub">Unused credits reset monthly.</p>
+                    <p class="pricing-controls-sub">Choose monthly or annual billing.</p>
                 </div>
                 <div class="toggle-wrap" role="tablist">
                     <button class="toggle-btn is-active" data-plan="monthly" role="tab" aria-selected="true">Monthly</button>
