@@ -658,10 +658,12 @@
             border: 1px solid var(--rule);
             border-radius: var(--r-lg);
             padding: 28px 22px;
+            padding-top: 36px;
             display: flex;
             flex-direction: column;
             gap: 10px;
             transition: all 0.3s ease;
+            position: relative;
         }
         .plan-card:hover { border-color: var(--rule-hover); transform: translateY(-3px); box-shadow: 0 12px 36px rgba(0,0,0,0.35); }
 
@@ -671,9 +673,11 @@
         }
         .plan-card.is-featured::before {
             content: 'Popular';
-            display: block;
-            font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
-            color: var(--purple-light); margin-bottom: 2px;
+            position: absolute;
+            top: 10px; left: 10px;
+            font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+            color: #fff; background: var(--purple-light);
+            padding: 4px 12px; border-radius: 999px;
         }
 
         .plan-name { font-size: 1rem; font-weight: 600; }
@@ -682,10 +686,12 @@
         .plan-term { font-size: 0.92rem; color: var(--gray); }
         .plan-og { font-size: 0.92rem; color: var(--muted); text-decoration: line-through; }
         .plan-save {
-            font-size: 11px; font-weight: 600;
-            background: var(--purple-dim); color: var(--purple-light);
-            padding: 2px 8px; border-radius: 999px;
-            border: 1px solid rgba(51, 85, 255, 0.2);
+            position: absolute;
+            top: 10px; right: 10px;
+            font-size: 11px; font-weight: 700;
+            background: var(--yellow); color: var(--bg);
+            padding: 4px 10px; border-radius: 999px;
+            border: none;
         }
         .plan-credits { font-size: 0.86rem; color: var(--gray); font-weight: 300; }
         .plan-card .btn { margin-top: auto; width: 100%; }
@@ -1037,19 +1043,19 @@
             <div class="plans-grid stagger reveal" id="plans-monthly" data-plan-content="monthly" role="tabpanel">
                 <article class="plan-card">
                     <p class="plan-name">Starter</p>
-                    <div class="plan-price"><span class="plan-amount">$14</span><span class="plan-term">/mo</span></div>
+                    <div class="plan-price"><span class="plan-amount">$15</span><span class="plan-term">/mo</span></div>
                     <p class="plan-credits">5,000 API credits/mo</p>
                     <a class="btn btn-outline" href="https://app.designcat.io/auth/register">Get started</a>
                 </article>
                 <article class="plan-card is-featured">
                     <p class="plan-name">Growth</p>
-                    <div class="plan-price"><span class="plan-amount">$29</span><span class="plan-term">/mo</span></div>
-                    <p class="plan-credits">13,000 API credits/mo</p>
+                    <div class="plan-price"><span class="plan-amount">$30</span><span class="plan-term">/mo</span></div>
+                    <p class="plan-credits">12,000 API credits/mo</p>
                     <a class="btn btn-purple" href="https://app.designcat.io/auth/register">Get started</a>
                 </article>
                 <article class="plan-card">
                     <p class="plan-name">Scale</p>
-                    <div class="plan-price"><span class="plan-amount">$56</span><span class="plan-term">/mo</span></div>
+                    <div class="plan-price"><span class="plan-amount">$60</span><span class="plan-term">/mo</span></div>
                     <p class="plan-credits">26,000 API credits/mo</p>
                     <a class="btn btn-outline" href="https://app.designcat.io/auth/register">Get started</a>
                 </article>
@@ -1064,26 +1070,30 @@
             <!-- Annual -->
             <div class="plans-grid is-hidden stagger reveal" id="plans-annual" data-plan-content="annual" role="tabpanel">
                 <article class="plan-card">
+                    <span class="plan-save">-30%</span>
                     <p class="plan-name">Starter</p>
-                    <div class="plan-price"><span class="plan-og">$14</span><span class="plan-amount">$9.80</span><span class="plan-term">/mo</span><span class="plan-save">-30%</span></div>
+                    <div class="plan-price"><span class="plan-og">$15</span><span class="plan-amount">$10.50</span><span class="plan-term">/mo</span></div>
                     <p class="plan-credits">5,000 API credits/mo</p>
                     <a class="btn btn-outline" href="https://app.designcat.io/auth/register">Get started</a>
                 </article>
                 <article class="plan-card is-featured">
+                    <span class="plan-save">-30%</span>
                     <p class="plan-name">Growth</p>
-                    <div class="plan-price"><span class="plan-og">$29</span><span class="plan-amount">$20.30</span><span class="plan-term">/mo</span><span class="plan-save">-30%</span></div>
-                    <p class="plan-credits">13,000 API credits/mo</p>
+                    <div class="plan-price"><span class="plan-og">$30</span><span class="plan-amount">$21</span><span class="plan-term">/mo</span></div>
+                    <p class="plan-credits">12,000 API credits/mo</p>
                     <a class="btn btn-purple" href="https://app.designcat.io/auth/register">Get started</a>
                 </article>
                 <article class="plan-card">
+                    <span class="plan-save">-30%</span>
                     <p class="plan-name">Scale</p>
-                    <div class="plan-price"><span class="plan-og">$56</span><span class="plan-amount">$39.20</span><span class="plan-term">/mo</span><span class="plan-save">-30%</span></div>
+                    <div class="plan-price"><span class="plan-og">$60</span><span class="plan-amount">$42</span><span class="plan-term">/mo</span></div>
                     <p class="plan-credits">26,000 API credits/mo</p>
                     <a class="btn btn-outline" href="https://app.designcat.io/auth/register">Get started</a>
                 </article>
                 <article class="plan-card">
+                    <span class="plan-save">-30%</span>
                     <p class="plan-name">Pro</p>
-                    <div class="plan-price"><span class="plan-og">$200</span><span class="plan-amount">$140</span><span class="plan-term">/mo</span><span class="plan-save">-30%</span></div>
+                    <div class="plan-price"><span class="plan-og">$200</span><span class="plan-amount">$140</span><span class="plan-term">/mo</span></div>
                     <p class="plan-credits">100,000 API credits/mo</p>
                     <a class="btn btn-outline" href="https://app.designcat.io/auth/register">Get started</a>
                 </article>
@@ -1094,18 +1104,18 @@
                 <p>One-time packs. Credits never expire.</p>
                 <div class="topups-grid stagger reveal">
                     <article class="plan-card">
-                        <div class="plan-price"><span class="plan-amount">$3</span></div>
-                        <p class="plan-credits">1,000 API credits</p>
+                        <div class="plan-price"><span class="plan-amount">$4</span></div>
+                        <p class="plan-credits">1,250 API credits</p>
                         <a class="btn btn-outline" href="https://app.designcat.io/auth/register">Buy credits</a>
                     </article>
                     <article class="plan-card">
-                        <div class="plan-price"><span class="plan-amount">$15</span></div>
-                        <p class="plan-credits">6,000 API credits</p>
+                        <div class="plan-price"><span class="plan-amount">$20</span></div>
+                        <p class="plan-credits">7,000 API credits</p>
                         <a class="btn btn-outline" href="https://app.designcat.io/auth/register">Buy credits</a>
                     </article>
                     <article class="plan-card">
-                        <div class="plan-price"><span class="plan-amount">$30</span></div>
-                        <p class="plan-credits">13,000 API credits</p>
+                        <div class="plan-price"><span class="plan-amount">$55</span></div>
+                        <p class="plan-credits">21,000 API credits</p>
                         <a class="btn btn-outline" href="https://app.designcat.io/auth/register">Buy credits</a>
                     </article>
                 </div>
