@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
     <title>DesignCat - AI Design Suite for Businesses and Solopreneurs</title>
     <meta name="description" content="99% of AI content looks like AI content. We're building the 1%. Six purpose-built AI creative tools. A straight line from idea to finished asset.">
@@ -22,70 +22,58 @@
 
     <link rel="icon" type="image/png" href="assets/neo_cat.png">
 
-    <!-- Fonts: Inconsolata via Google Fonts -->
+    <!-- Fonts: Sora via Google Fonts (matches webapp) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* ── Self-hosted Terminus ───────────────────────── */
-        @font-face {
-            font-family: 'Terminus';
-            src: url('assets/fonts/TerminusTTF.ttf') format('truetype');
-            font-weight: 400;
-            font-style: normal;
-            font-display: swap;
-        }
-        @font-face {
-            font-family: 'Terminus';
-            src: url('assets/fonts/TerminusTTF-Bold.ttf') format('truetype');
-            font-weight: 700;
-            font-style: normal;
-            font-display: swap;
-        }
 
         /* ================================================================
-           V7 — "THE STRAIGHT LINE" — Empathetic Monospace Manifesto
+           V8 — "THE STRAIGHT LINE" — Premium Dark Theme
            ================================================================
-           Same design system as index.html (v6 Atelier) with new
-           narrative spine: Problem → Fix → Result.
-           Anti-AI-slop messaging. Proprietary benchmarking hint.
+           Aligned with webapp Sora + dark palette. Lifted backgrounds,
+           brightened text, removed overlays for clean readability.
+           Narrative spine: Problem → Fix → Result.
            ================================================================ */
 
         :root {
-            --bg: #020012;
-            --bg-warm: #0e0f15;
-            --bg-card: #13151d;
-            --bg-elevated: #1a1c26;
+            /* Backgrounds — lifted from near-black to comfortable dark charcoal */
+            --bg: #14161e;
+            --bg-warm: #1a1c26;
+            --bg-card: #1e2029;
+            --bg-elevated: #252833;
 
-            --cream: #eef0f8;
-            --cream-soft: #b4b9c9;
-            --gray: #7e8394;
-            --muted: #4f5263;
+            /* Text — brightened for readability with Sora at weight 400 */
+            --cream: #f0f1f5;
+            --cream-soft: #d0d4e0;
+            --gray: #9aa3b2;
+            --muted: #6b7080;
 
-            /* Electric blue */
-            --purple: #0028E0;
-            --purple-light: #3355ff;
-            --purple-dim: rgba(0, 40, 224, 0.12);
-            --purple-glow: rgba(0, 40, 224, 0.07);
-            --purple-hover: #1a3df0;
+            /* Primary blue — aligned with webapp #3453cd */
+            --purple: #3453cd;
+            --purple-light: #6ea8fe;
+            --purple-dim: rgba(52, 83, 205, 0.14);
+            --purple-glow: rgba(52, 83, 205, 0.08);
+            --purple-hover: #3d5fd9;
             --purple-text: #ffffff;
 
             --red: #ff0000;
-            --green: #34d058;
+            --green: #22c55e;
             --yellow: #facc15;
 
-            --rule: #1e2030;
-            --rule-hover: #2e3048;
+            /* Borders — lifted to match webapp divider (#2a2f3a) */
+            --rule: #2a2f3a;
+            --rule-hover: #383d52;
 
-            --serif: 'Inconsolata', 'Courier New', monospace;
-            --sans: 'Inconsolata', 'Courier New', monospace;
+            --serif: 'Sora', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            --sans: 'Sora', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 
             --max-w: 1060px;
             --px: 28px;
             --header-h: 64px;
 
-            --r-sm: 6px;
+            --r-sm: 8px;
             --r-md: 10px;
             --r-lg: 14px;
         }
@@ -101,7 +89,8 @@
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            line-height: 1.65;
+            line-height: 1.7;
+            font-weight: 400;
         }
 
         img { display: block; max-width: 100%; }
@@ -109,27 +98,7 @@
         address { font-style: normal; }
         .wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--px); }
 
-        /* ── Film grain ──────────────────────────────────────── */
-        body::after {
-            content: '';
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 10000;
-            opacity: 0.035;
-            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-            background-size: 200px;
-        }
-
-        /* ── Vignette ────────────────────────────────────────── */
-        body::before {
-            content: '';
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 9999;
-            background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.4) 100%);
-        }
+        /* ── Film grain & vignette removed for cleaner, brighter feel ── */
 
         /* ================================================================
            HEADER
@@ -139,7 +108,7 @@
             top: 0;
             z-index: 200;
             height: var(--header-h);
-            background: rgba(10, 11, 16, 0.92);
+            background: rgba(20, 22, 30, 0.92);
             backdrop-filter: blur(16px) saturate(1.15);
             -webkit-backdrop-filter: blur(16px) saturate(1.15);
             border-bottom: 1px solid var(--rule);
@@ -157,10 +126,10 @@
 
         .brand { display: flex; align-items: center; gap: 10px; }
         .brand img { width: 46px; height: 46px; object-fit: contain; }
-        .brand-name { font-size: 24px; font-weight: 700; color: var(--red); }
+        .brand-name { font-size: 26px; font-weight: 700; color: var(--red); letter-spacing: -0.01em; }
 
         .nav { display: flex; gap: 28px; }
-        .nav a { font-size: 13px; font-weight: 400; color: var(--gray); letter-spacing: 0.02em; transition: color 0.2s; }
+        .nav a { font-size: 15px; font-weight: 500; color: var(--gray); letter-spacing: 0.01em; transition: color 0.2s; }
         .nav a:hover { color: var(--cream); }
 
         .hdr-ctas { display: flex; gap: 8px; }
@@ -174,16 +143,17 @@
         }
         .btn svg { flex-shrink: 0; }
 
-        .btn-ghost { padding: 9px 16px; border-radius: var(--r-sm); background: transparent; color: var(--gray); }
+        .btn-ghost { padding: 9px 16px; border-radius: var(--r-sm); background: transparent; color: var(--gray); font-size: 15px; }
         .btn-ghost:hover { color: var(--cream); }
 
         .btn-purple {
             padding: 10px 24px; border-radius: var(--r-sm);
             background: var(--purple); color: var(--purple-text);
+            font-size: 18px;
         }
         .btn-purple:hover {
             background: var(--purple-hover);
-            box-shadow: 0 4px 24px rgba(0, 40, 224, 0.4);
+            box-shadow: 0 4px 24px rgba(52, 83, 205, 0.4);
             transform: translateY(-1px);
         }
 
@@ -193,7 +163,7 @@
         }
         .btn-outline:hover { border-color: var(--purple-light); color: var(--purple-light); }
 
-        .btn-lg { padding: 16px 40px; font-size: 15px; border-radius: var(--r-md); }
+        .btn-lg { padding: 14px 36px; font-size: 18px; border-radius: var(--r-md); }
 
         /* ================================================================
            HERO — "The 1%" — centered, editorial
@@ -216,7 +186,7 @@
             left: 50%;
             transform: translateX(-50%);
             width: 700px; height: 500px;
-            background: radial-gradient(ellipse, rgba(0, 40, 224, 0.06) 0%, transparent 60%);
+            background: radial-gradient(ellipse, rgba(52, 83, 205, 0.07) 0%, transparent 60%);
             pointer-events: none;
         }
 
@@ -228,7 +198,7 @@
             right: 8%;
             width: 1px;
             height: 180px;
-            background: linear-gradient(180deg, transparent, rgba(0, 40, 224, 0.2), transparent);
+            background: linear-gradient(180deg, transparent, rgba(52, 83, 205, 0.2), transparent);
             transform: rotate(25deg);
             pointer-events: none;
         }
@@ -236,30 +206,33 @@
         .hero .wrap { position: relative; z-index: 1; }
 
         .hero-eyebrow {
-            font-size: 18px;
+            font-size: 13px;
             font-weight: 600;
-            letter-spacing: 0.22em;
+            letter-spacing: 0.18em;
             text-transform: uppercase;
-            color: #FF0000;
-            margin-bottom: 32px;
+            color: #ff0000;
+            margin-bottom: 28px;
         }
 
         .hero-line1 {
             font-family: var(--sans);
-            font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+            font-size: clamp(32px, 4.2vw, 52px);
             font-weight: 700;
-            letter-spacing: -0.015em;
+            letter-spacing: -0.02em;
             line-height: 1.2;
-            margin-bottom: 24px;
+            margin-bottom: 28px;
         }
 
         .hero-line1 em {
             font-style: normal;
-            color: var(--purple);
+            color: #0000ff;
+            background: var(--yellow);
+            padding: 2px 8px;
+            border-radius: 4px;
         }
 
         .hero-uncanny {
-            color: var(--yellow);
+            color: #ff6600;
             position: relative;
             display: inline-block;
             filter: url(#liquid-warp);
@@ -388,15 +361,24 @@
         }
 
         .hero-sub {
-            font-size: clamp(0.92rem, 1.4vw, 1.05rem);
-            font-weight: 300;
+            font-size: clamp(15px, 1.4vw, 17px);
+            font-weight: 400;
             color: var(--cream-soft);
             margin: 0 auto 48px;
-            line-height: 1.85;
-            max-width: 480px;
+            line-height: 1.8;
+            max-width: 500px;
         }
 
         .hero-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+        .hero-launch {
+            margin-top: 32px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--muted);
+            letter-spacing: 0.04em;
+        }
+        .hero-launch { color: #e8607a; }
 
         /* ================================================================
            MANIFESTO SECTIONS — Problem / Fix / Result
@@ -414,40 +396,217 @@
             max-width: 640px;
         }
 
+        /* ── Problem, Fix & Result sections: two-column with images ── */
+        .manifesto--problem .wrap,
+        .manifesto--fix .wrap,
+        .manifesto--result .wrap {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .manifesto--problem .manifesto-inner,
+        .manifesto--fix .manifesto-inner,
+        .manifesto--result .manifesto-inner {
+            max-width: none;
+        }
+
+        .uncanny-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .uncanny-grid img {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            border-radius: var(--r-md);
+            border: 1px solid var(--rule);
+        }
+
+        .uncanny-caption {
+            grid-column: 1 / -1;
+            text-align: center;
+            margin-top: 8px;
+            font-size: 12px;
+            font-style: italic;
+        }
+
+        /* ── Result: portrait left + two landscapes stacked right ── */
+        .realistic-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .realistic-grid img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: var(--r-md);
+            border: 1px solid var(--rule);
+        }
+
+        .realistic-grid .realistic-portrait {
+            grid-row: 1 / 3;
+            display: flex;
+        }
+
+        .benchmarking-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .benchmarking-visual img {
+            width: 100%;
+            border-radius: var(--r-lg);
+            border: 1px solid var(--rule);
+        }
+
+        /* ── CSS-only lightbox ─────────────────────────── */
+        .lightbox-thumb {
+            cursor: zoom-in;
+            display: block;
+        }
+
+        .lightbox-thumb img {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .lightbox-thumb:hover img {
+            transform: scale(1.02);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 9000;
+            background: rgba(0, 0, 0, 0.88);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox:target {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            inset: 0;
+            cursor: zoom-out;
+        }
+
+        .lightbox img {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: var(--r-md);
+            z-index: 1;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+        }
+
+        .lightbox-x {
+            position: absolute;
+            top: 20px;
+            right: 24px;
+            z-index: 2;
+            font-size: 32px;
+            font-weight: 300;
+            color: var(--cream-soft);
+            text-decoration: none;
+            line-height: 1;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .lightbox-x:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--cream);
+        }
+
+        .uncanny-caption span {
+            color: #ff0000;
+            background: var(--yellow);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
         .manifesto-eyebrow {
             font-size: 16px;
             font-weight: 600;
             letter-spacing: 0.14em;
             text-transform: uppercase;
             color: var(--red);
-            margin-bottom: 20px;
+            margin-bottom: 16px;
+            display: inline-block;
+        }
+
+        /* Problem: red on yellow — warning/danger */
+        .manifesto--problem .manifesto-eyebrow {
+            color: #ff0000;
+            background: var(--yellow);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        /* Fix: white on brand blue — action/solution */
+        .manifesto--fix .manifesto-eyebrow {
+            color: #ffffff;
+            background: var(--purple);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        /* Result: dark on green — success/payoff */
+        .manifesto--result .manifesto-eyebrow {
+            color: #0a2a12;
+            background: var(--green);
+            padding: 2px 8px;
+            border-radius: 4px;
         }
 
         .manifesto-title {
             font-family: var(--sans);
-            font-size: clamp(31px, 3.5vw, 44px);
+            font-size: clamp(28px, 3.2vw, 40px);
             font-weight: 700;
             line-height: 1.2;
-            margin-bottom: 28px;
+            margin-bottom: 24px;
             letter-spacing: -0.02em;
         }
 
         .manifesto-body {
-            font-size: 19px;
-            font-weight: 300;
+            font-size: 17px;
+            font-weight: 400;
             color: var(--cream-soft);
-            line-height: 1.9;
+            line-height: 1.8;
         }
 
         .manifesto-body strong {
             color: var(--cream);
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .manifesto-link {
             display: inline-block;
             margin-top: 24px;
-            font-size: 0.92rem;
+            font-size: 14px;
             font-weight: 500;
             color: var(--purple-light);
             transition: color 0.2s;
@@ -475,7 +634,7 @@
             top: 15%;
             right: 0;
             width: 450px; height: 350px;
-            background: radial-gradient(ellipse, rgba(0, 40, 224, 0.06) 0%, transparent 60%);
+            background: radial-gradient(ellipse, rgba(52, 83, 205, 0.07) 0%, transparent 60%);
             pointer-events: none;
         }
 
@@ -487,7 +646,7 @@
             left: 50%;
             transform: translateX(-50%);
             width: 600px; height: 400px;
-            background: radial-gradient(ellipse, rgba(0, 40, 224, 0.08) 0%, transparent 55%);
+            background: radial-gradient(ellipse, rgba(52, 83, 205, 0.09) 0%, transparent 55%);
             pointer-events: none;
         }
 
@@ -513,7 +672,7 @@
             content: '';
             position: absolute;
             width: 1px;
-            background: linear-gradient(180deg, transparent, rgba(255, 0, 0, 0.15), transparent);
+            background: linear-gradient(180deg, transparent, rgba(255, 0, 0, 0.12), transparent);
         }
 
         .manifesto--problem .deco-line::before {
@@ -545,7 +704,7 @@
             left: 30px;
             width: 1px;
             height: 100%;
-            background: linear-gradient(180deg, transparent, rgba(0, 40, 224, 0.18), transparent);
+            background: linear-gradient(180deg, transparent, rgba(52, 83, 205, 0.2), transparent);
             transform: rotate(5deg);
         }
 
@@ -555,7 +714,7 @@
             right: 12%;
             width: 1px;
             height: 180px;
-            background: linear-gradient(180deg, transparent, rgba(0, 40, 224, 0.25), transparent);
+            background: linear-gradient(180deg, transparent, rgba(52, 83, 205, 0.25), transparent);
         }
 
         /* ================================================================
@@ -568,28 +727,28 @@
             font-weight: 600;
             letter-spacing: 0.14em;
             text-transform: uppercase;
-            color: var(--red);
+            color: var(--purple-light);
             margin-bottom: 14px;
         }
 
         .sec-title {
             font-family: var(--sans);
-            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-size: clamp(28px, 3.2vw, 40px);
             font-weight: 700;
-            line-height: 1.15;
+            line-height: 1.2;
             margin-bottom: 18px;
             letter-spacing: -0.02em;
         }
 
         .sec-desc {
-            font-size: 1rem;
-            font-weight: 300;
+            font-size: 17px;
+            font-weight: 400;
             color: var(--cream-soft);
-            line-height: 1.8;
+            line-height: 1.75;
             max-width: 560px;
         }
 
-        .sec-desc strong { color: var(--cream); font-weight: 500; }
+        .sec-desc strong { color: var(--cream); font-weight: 600; }
 
         /* ================================================================
            TOOLKIT — v3 card system: featured + grid
@@ -629,7 +788,7 @@
             width: 56px; height: 56px;
             border-radius: var(--r-md);
             background: var(--purple-dim);
-            border: 1px solid rgba(51, 85, 255, 0.2);
+            border: 1px solid rgba(52, 83, 205, 0.25);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -652,33 +811,34 @@
         }
 
         .tf-info h3 {
-            font-size: 1.8rem;
+            font-size: 26px;
             font-weight: 700;
             margin-bottom: 14px;
             line-height: 1.2;
         }
 
         .tf-info p {
-            font-size: 0.95rem;
-            font-weight: 300;
+            font-size: 15px;
+            font-weight: 400;
             color: var(--cream-soft);
             line-height: 1.7;
             margin-bottom: 28px;
         }
 
         .tf-visual {
-            aspect-ratio: 16 / 11;
             background: var(--bg-warm);
             border: 1px solid var(--rule);
             border-radius: var(--r-md);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            overflow: hidden;
         }
-        .tf-visual span {
-            font-size: 14px;
-            font-weight: 400;
-            color: var(--muted);
+        .tf-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .tf-visual .lightbox-thumb {
+            display: block;
         }
 
         /* Other tools: compact cards */
@@ -729,16 +889,16 @@
         .tool-other-icon img { width: 24px; height: 24px; }
 
         .tool-other h4 {
-            font-size: 1.1rem;
+            font-size: 16px;
             font-weight: 600;
             margin-bottom: 6px;
         }
 
         .tool-other p {
-            font-size: 15px;
-            font-weight: 300;
+            font-size: 13px;
+            font-weight: 400;
             color: var(--gray);
-            line-height: 1.55;
+            line-height: 1.6;
         }
 
         /* ================================================================
@@ -750,7 +910,7 @@
         }
 
         .pricing-top h2 {
-            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+            font-size: clamp(28px, 3.2vw, 40px);
             font-weight: 700;
             line-height: 1.2;
             margin-bottom: 14px;
@@ -758,8 +918,8 @@
         }
 
         .pricing-top p {
-            font-size: 1rem;
-            font-weight: 300;
+            font-size: 15px;
+            font-weight: 400;
             color: var(--cream-soft);
             max-width: 440px;
             margin: 0 auto;
@@ -776,12 +936,12 @@
         }
 
         .pricing-controls h3 {
-            font-size: 1.3rem;
+            font-size: clamp(28px, 3.2vw, 40px);
             font-weight: 600;
             margin-bottom: 4px;
         }
 
-        .pricing-controls-sub { font-size: 0.88rem; color: var(--gray); font-weight: 300; }
+        .pricing-controls-sub { font-size: 16px; color: var(--gray); font-weight: 400; }
 
         .toggle-wrap {
             display: inline-flex;
@@ -822,8 +982,8 @@
         .plan-card:hover { border-color: var(--rule-hover); transform: translateY(-3px); box-shadow: 0 12px 36px rgba(0,0,0,0.35); }
 
         .plan-card.is-featured {
-            border-color: rgba(51, 85, 255, 0.35);
-            background: linear-gradient(180deg, rgba(0, 40, 224, 0.06) 0%, var(--bg-card) 50%);
+            border-color: rgba(52, 83, 205, 0.35);
+            background: linear-gradient(180deg, rgba(52, 83, 205, 0.08) 0%, var(--bg-card) 50%);
         }
         .plan-card.is-featured::before {
             content: 'Popular';
@@ -834,11 +994,11 @@
             padding: 4px 12px; border-radius: 999px;
         }
 
-        .plan-name { font-size: 1rem; font-weight: 600; }
+        .plan-name { font-size: 16px; font-weight: 600; }
         .plan-price { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
-        .plan-amount { font-size: 2.4rem; font-weight: 700; line-height: 1; letter-spacing: -0.02em; }
-        .plan-term { font-size: 0.92rem; color: var(--gray); }
-        .plan-og { font-size: 0.92rem; color: var(--muted); text-decoration: line-through; }
+        .plan-amount { font-size: 34px; font-weight: 700; line-height: 1; letter-spacing: -0.02em; }
+        .plan-term { font-size: 15px; color: var(--gray); }
+        .plan-og { font-size: 15px; color: var(--muted); text-decoration: line-through; }
         .plan-save {
             position: absolute;
             top: 10px; right: 10px;
@@ -847,12 +1007,12 @@
             padding: 4px 10px; border-radius: 999px;
             border: none;
         }
-        .plan-credits { font-size: 0.86rem; color: var(--gray); font-weight: 300; }
+        .plan-credits { font-size: 14px; color: var(--gray); font-weight: 400; }
         .plan-card .btn { margin-top: auto; width: 100%; }
 
         .topups-block { margin-top: 56px; }
-        .topups-block h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 6px; }
-        .topups-block > p { font-size: 0.88rem; color: var(--gray); font-weight: 300; margin-bottom: 20px; }
+        .topups-block h3 { font-size: clamp(28px, 3.2vw, 40px); font-weight: 600; margin-bottom: 6px; }
+        .topups-block > p { font-size: 16px; color: var(--gray); font-weight: 400; margin-bottom: 20px; }
         .topups-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
 
         /* ================================================================
@@ -881,17 +1041,18 @@
             left: 12%;
             width: 1px;
             height: 120px;
-            background: linear-gradient(180deg, transparent, rgba(0, 40, 224, 0.15), transparent);
+            background: linear-gradient(180deg, transparent, rgba(52, 83, 205, 0.18), transparent);
             transform: rotate(-20deg);
             pointer-events: none;
         }
 
         .final-cta h2 {
             font-family: var(--sans);
-            font-size: clamp(2rem, 4.5vw, 3.2rem);
+            font-size: clamp(30px, 4.2vw, 48px);
             font-weight: 700;
-            line-height: 1.15;
+            line-height: 1.2;
             margin-bottom: 16px;
+            letter-spacing: -0.02em;
             position: relative;
         }
         .final-cta h2 em { font-style: normal; color: var(--purple); }
@@ -906,7 +1067,7 @@
             padding: 2.5rem 0;
             border-top: 1px solid var(--rule);
             color: var(--gray);
-            font-size: 0.95rem;
+            font-size: 14px;
             line-height: 1.6;
         }
 
@@ -949,7 +1110,7 @@
 
         .footer-copy {
             grid-column: 1 / -1; text-align: center;
-            margin-top: 1.25rem; font-size: 0.82rem; color: var(--muted);
+            margin-top: 1.25rem; font-size: 13px; color: var(--muted);
         }
 
         /* ================================================================
@@ -987,30 +1148,94 @@
            RESPONSIVE
            ================================================================ */
         @media (max-width: 960px) {
+            .manifesto--problem .wrap,
+            .manifesto--fix .wrap,
+            .manifesto--result .wrap { grid-template-columns: 1fr; gap: 32px; }
             .tool-feature { grid-template-columns: 1fr; padding: 32px; }
             .tools-others, .plans-grid { grid-template-columns: repeat(2, 1fr); }
             .deco-line { display: none; }
         }
 
         @media (max-width: 640px) {
+            /* 1. Global: tighter side padding */
+            :root { --px: 16px; }
+
+            /* 2. Header: smaller logo & brand */
+            .brand img { width: 36px; height: 36px; }
+            .brand-name { font-size: 22px; }
+
+            /* Hide nav on mobile */
             .nav { display: none; }
+
+            /* 3. Hero h1: hide <br> for natural reflow */
+            .mobile-hide { display: none; }
+
             .hero { padding: 48px 0; min-height: auto; }
-            .hero-line1 { font-size: 2rem; }
-            .section { padding: 80px 0; }
-            .manifesto { padding: 72px 0; }
+            .hero-line1 { font-size: 28px; }
+
+            /* 4. Hero eyebrow: tighter letter-spacing */
+            .hero-eyebrow { letter-spacing: 0.1em; }
+
+            /* 5. Hero CTAs: smaller btn-lg */
+            .btn-lg { padding: 12px 28px; font-size: 16px; }
 
             .hero-ctas { flex-direction: column; align-items: stretch; max-width: 300px; margin: 0 auto; }
             .hero-ctas .btn { justify-content: center; }
+
+            /* 6. Manifesto sections: reduced padding & body text */
+            .section { padding: 80px 0; }
+            .manifesto { padding: 56px 0; }
+            .manifesto-body { font-size: 15px; }
+
+            /* 7. Image grids: cap width & center */
+            .uncanny-grid,
+            .realistic-grid,
+            .benchmarking-visual { max-width: 360px; margin: 0 auto; }
+
+            /* 8. Tool feature card: tighter padding */
+            .tool-feature { grid-template-columns: 1fr; padding: 20px; }
 
             .tools-others { grid-template-columns: 1fr; }
             .plans-grid { grid-template-columns: 1fr; }
             .topups-grid { grid-template-columns: 1fr; }
             .pricing-controls { flex-direction: column; align-items: flex-start; }
 
+            /* 9. Plan amounts: smaller on mobile */
+            .plan-amount { font-size: 28px; }
+
+            /* 10. Final CTA: tighter + <br> hidden via .mobile-hide */
             .final-cta { padding: 80px 0; }
+
+            /* 11. Lightbox X button: larger tap target for mobile */
+            .lightbox-x {
+                font-size: 36px;
+                width: 44px;
+                height: 44px;
+                top: max(16px, env(safe-area-inset-top, 16px));
+                right: max(16px, env(safe-area-inset-right, 16px));
+            }
 
             .footer-grid { grid-template-columns: 1fr; }
             .footer-right, .footer-email-right { grid-column: 1; text-align: left; justify-self: start; }
+        }
+
+        /* 2b. Hide "Log in" on very small screens */
+        @media (max-width: 480px) {
+            .btn-ghost { display: none; }
+        }
+
+        /* 12. Safe areas for notched phones */
+        @supports (padding: env(safe-area-inset-top)) {
+            .site-header {
+                padding-top: env(safe-area-inset-top);
+                padding-left: env(safe-area-inset-left);
+                padding-right: env(safe-area-inset-right);
+            }
+            .site-footer {
+                padding-bottom: calc(2.5rem + env(safe-area-inset-bottom));
+                padding-left: env(safe-area-inset-left);
+                padding-right: env(safe-area-inset-right);
+            }
         }
     </style>
 </head>
@@ -1049,7 +1274,7 @@
         <div class="wrap">
             <p class="hero-eyebrow hero-enter">AI Design Suite for Businesses &amp; Solopreneurs</p>
 
-            <h1 class="hero-line1 hero-enter">99% of AI content looks<br><span class="hero-uncanny">uncanny</span> and <span class="hero-nightmarish" data-text="nightmarish">nightmarish</span>.<br>We're building the <em>1%</em>.</h1>
+            <h1 class="hero-line1 hero-enter">99% of AI content looks<br class="mobile-hide"> <span class="hero-uncanny">uncanny</span> and <span class="hero-nightmarish" data-text="nightmarish">nightmarish</span>.<br class="mobile-hide"> We're building the <em>1%</em>.</h1>
 
             <p class="hero-sub hero-enter">Built by creators who got tired of the uncanny valley.</p>
 
@@ -1060,6 +1285,8 @@
                 </a>
                 <a class="btn btn-outline btn-lg" href="#pricing">See Pricing</a>
             </div>
+
+            <p class="hero-launch hero-enter">&hearts; Launched Valentine's Day, 2026 &hearts;</p>
         </div>
     </section>
 
@@ -1077,6 +1304,13 @@
                     <strong>A few flashes of brilliance buried in a mountain of slop.</strong>
                 </p>
             </div>
+            <div class="uncanny-grid">
+                <a href="#lb-u1" class="lightbox-thumb"><img src="examples/uncanny/uncanny_emily_1.png" alt="AI-generated face with uncanny artifacts"></a>
+                <a href="#lb-u2" class="lightbox-thumb"><img src="examples/uncanny/uncanny_emily_2.png" alt="AI-generated face with uncanny artifacts"></a>
+                <a href="#lb-u3" class="lightbox-thumb"><img src="examples/uncanny/uncanny_emily_3.png" alt="AI-generated face with uncanny artifacts"></a>
+                <a href="#lb-u4" class="lightbox-thumb"><img src="examples/uncanny/uncanny_emily_4.png" alt="AI-generated face with uncanny artifacts"></a>
+                <p class="uncanny-caption"><span>Made with a $70M ARR solution.</span></p>
+            </div>
         </div>
     </section>
 
@@ -1089,11 +1323,14 @@
                 <h2 class="manifesto-title">So we built the filter.</h2>
                 <p class="manifesto-body">
                     A squad of data scientist, filmmaker, photographer, engineer.
-                    Six months in a room together. One proprietary benchmarking system
+                    Six months in a room together. We came up with a proprietary benchmarking system
                     that knows which AI tool and parameters produce the best result for your specific task.
                     <strong>You describe what you want. We route it. You never see the plumbing.</strong>
                 </p>
-                <a class="manifesto-link" href="#">How our benchmarking works &rarr;</a>
+                <span class="manifesto-link">Our benchmarking philosophy &mdash; to be released soon</span>
+            </div>
+            <div class="benchmarking-visual">
+                <a href="#lb-b1" class="lightbox-thumb"><img src="examples/benchmarking/DesignCat_Curated_Benchmarking.png" alt="DesignCat curated benchmarking system"></a>
             </div>
         </div>
     </section>
@@ -1110,6 +1347,11 @@
                     No more uncanny valley.
                     <strong>A straight line from idea to finished asset.</strong>
                 </p>
+            </div>
+            <div class="realistic-grid">
+                <a href="#lb-r1" class="lightbox-thumb realistic-portrait"><img src="examples/realistic/emily_1.png" alt="Realistic AI-generated portrait"></a>
+                <a href="#lb-r2" class="lightbox-thumb"><img src="examples/realistic/emily_2.png" alt="Realistic AI-generated image"></a>
+                <a href="#lb-r3" class="lightbox-thumb"><img src="examples/realistic/emily_3.png" alt="Realistic AI-generated image"></a>
             </div>
         </div>
     </section>
@@ -1136,7 +1378,7 @@
                     <a class="btn btn-purple" href="https://app.designcat.io/auth/register">Try Motion</a>
                 </div>
                 <div class="tf-visual">
-                    <span>product screenshot</span>
+                    <a href="#lb-motion" class="lightbox-thumb"><img src="examples/screenshots/Motion.png" alt="DesignCat Motion — video production pipeline"></a>
                 </div>
             </div>
 
@@ -1186,7 +1428,7 @@
                 </div>
                 <div class="toggle-wrap" role="tablist">
                     <button class="toggle-btn is-active" data-plan="monthly" role="tab" aria-selected="true">Monthly</button>
-                    <button class="toggle-btn" data-plan="annual" role="tab" aria-selected="false">Annually</button>
+                    <button class="toggle-btn" data-plan="annual" role="tab" aria-selected="false">Annual</button>
                 </div>
             </div>
 
@@ -1277,7 +1519,7 @@
     <!-- ─── FINAL CTA — bookend from index.html hero ── -->
     <section class="final-cta reveal">
         <div class="wrap">
-            <h2>Materialize your <em>ideas</em>,<br><span class="hero-no">no</span> AI slop.</h2>
+            <h2>Materialize your <em>ideas</em>,<br class="mobile-hide"> <span class="hero-no">no</span> AI slop.</h2>
             <a class="btn btn-purple btn-lg" href="https://app.designcat.io/auth/register">
                 Start Creating
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.33 8h9.34"/><path d="M8.67 4 12.67 8l-4 4"/></svg>
@@ -1308,6 +1550,17 @@
             </div>
         </div>
     </footer>
+
+    <!-- ─── LIGHTBOXES ─────────────────────────────── -->
+    <div class="lightbox" id="lb-u1"><a class="lightbox-close" href="#!"></a><a class="lightbox-x" href="#!">&times;</a><img src="examples/uncanny/uncanny_emily_1.png" alt="Uncanny example 1"></div>
+    <div class="lightbox" id="lb-u2"><a class="lightbox-close" href="#!"></a><a class="lightbox-x" href="#!">&times;</a><img src="examples/uncanny/uncanny_emily_2.png" alt="Uncanny example 2"></div>
+    <div class="lightbox" id="lb-u3"><a class="lightbox-close" href="#!"></a><a class="lightbox-x" href="#!">&times;</a><img src="examples/uncanny/uncanny_emily_3.png" alt="Uncanny example 3"></div>
+    <div class="lightbox" id="lb-u4"><a class="lightbox-close" href="#!"></a><a class="lightbox-x" href="#!">&times;</a><img src="examples/uncanny/uncanny_emily_4.png" alt="Uncanny example 4"></div>
+    <div class="lightbox" id="lb-b1"><a class="lightbox-close" href="#!"></a><a class="lightbox-x" href="#!">&times;</a><img src="examples/benchmarking/DesignCat_Curated_Benchmarking.png" alt="Benchmarking system"></div>
+    <div class="lightbox" id="lb-r1"><a class="lightbox-close" href="#!"></a><a class="lightbox-x" href="#!">&times;</a><img src="examples/realistic/emily_1.png" alt="Realistic result 1"></div>
+    <div class="lightbox" id="lb-r2"><a class="lightbox-close" href="#!"></a><a class="lightbox-x" href="#!">&times;</a><img src="examples/realistic/emily_2.png" alt="Realistic result 2"></div>
+    <div class="lightbox" id="lb-r3"><a class="lightbox-close" href="#!"></a><a class="lightbox-x" href="#!">&times;</a><img src="examples/realistic/emily_3.png" alt="Realistic result 3"></div>
+    <div class="lightbox" id="lb-motion"><a class="lightbox-close" href="#!"></a><a class="lightbox-x" href="#!">&times;</a><img src="examples/screenshots/Motion.png" alt="DesignCat Motion screenshot"></div>
 
     <!-- ─── SCRIPTS ───────────────────────────────── -->
     <script>
