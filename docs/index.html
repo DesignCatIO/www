@@ -5,24 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>DesignCat - AI Design Suite for Businesses and Solopreneurs</title>
-    <meta name="description" content="Five purpose-built AI creative tools for video, image, and content creation. Intuitive by default. A straight line from idea to finished asset.">
+    <meta name="description" content="99% of AI content looks like AI content. We're building the 1%. Six purpose-built AI creative tools. A straight line from idea to finished asset.">
     <link rel="canonical" href="https://designcat.io/">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://designcat.io/">
-    <meta property="og:title" content="DesignCat - We handle the craft. You tell the story.">
-    <meta property="og:description" content="Five purpose-built AI creative tools, intuitive by default. Everything a creator needs — nothing they don't.">
+    <meta property="og:title" content="DesignCat - 99% of AI content looks like AI content. We're building the 1%.">
+    <meta property="og:description" content="Built by creators who got tired of the uncanny valley. Six purpose-built AI creative tools, one studio.">
     <meta property="og:image" content="https://designcat.io/assets/neo_cat_w_banner.png">
     <meta property="og:site_name" content="DesignCat">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="DesignCat - We handle the craft. You tell the story.">
-    <meta name="twitter:description" content="Five purpose-built AI creative tools. Everything a creator needs — nothing they don't.">
+    <meta name="twitter:title" content="DesignCat - 99% of AI content looks like AI content. We're building the 1%.">
+    <meta name="twitter:description" content="Built by creators who got tired of the uncanny valley. Six purpose-built AI creative tools.">
     <meta name="twitter:image" content="https://designcat.io/assets/neo_cat_w_banner.png">
 
     <link rel="icon" type="image/png" href="assets/neo_cat.png">
 
-    <!-- Fonts: Inconsolata (headline) via Google Fonts, Terminus (body) self-hosted -->
+    <!-- Fonts: Inconsolata via Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -45,21 +45,15 @@
         }
 
         /* ================================================================
-           V6 — "THE ATELIER"
+           V7 — "THE STRAIGHT LINE" — Empathetic Monospace Manifesto
            ================================================================
-           Electric blue (#0028E0) on deep charcoal. Inconsolata
-           for headlines, Terminus for body.
-
-           Layout: v3 toolkit card system (Motion featured card with
-           screenshot placeholder + 4 "coming soon" cards in grid).
-           Messaging: v4's Approach D architecture.
-
-           Think: a private atelier showroom. Precision and depth.
-           The work speaks. The space lets it.
+           Same design system as index.html (v6 Atelier) with new
+           narrative spine: Problem → Fix → Result.
+           Anti-AI-slop messaging. Proprietary benchmarking hint.
            ================================================================ */
 
         :root {
-            --bg: #0a0b10;
+            --bg: #020012;
             --bg-warm: #0e0f15;
             --bg-card: #13151d;
             --bg-elevated: #1a1c26;
@@ -163,7 +157,7 @@
 
         .brand { display: flex; align-items: center; gap: 10px; }
         .brand img { width: 46px; height: 46px; object-fit: contain; }
-        .brand-name { font-size: 1.35rem; font-weight: 700; color: var(--red); }
+        .brand-name { font-size: 24px; font-weight: 700; color: var(--red); }
 
         .nav { display: flex; gap: 28px; }
         .nav a { font-size: 13px; font-weight: 400; color: var(--gray); letter-spacing: 0.02em; transition: color 0.2s; }
@@ -174,7 +168,7 @@
         /* ── Buttons ─────────────────────────────────────────── */
         .btn {
             display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-            font-family: var(--sans); font-weight: 600; font-size: 14px;
+            font-family: var(--sans); font-weight: 600; font-size: 16px;
             border: none; cursor: pointer; transition: all 0.25s ease;
             white-space: nowrap; line-height: 1;
         }
@@ -202,7 +196,7 @@
         .btn-lg { padding: 16px 40px; font-size: 15px; border-radius: var(--r-md); }
 
         /* ================================================================
-           HERO — centered, confident, editorial
+           HERO — "The 1%" — centered, editorial
            ================================================================ */
         .hero {
             min-height: calc(100vh - var(--header-h));
@@ -214,7 +208,7 @@
             position: relative;
         }
 
-        /* Ambient purple wash — like velvet behind glass */
+        /* Ambient blue wash */
         .hero::before {
             content: '';
             position: absolute;
@@ -226,7 +220,7 @@
             pointer-events: none;
         }
 
-        /* Diagonal slash — the atelier mark */
+        /* Diagonal slash */
         .hero::after {
             content: '';
             position: absolute;
@@ -252,11 +246,11 @@
 
         .hero-line1 {
             font-family: var(--sans);
-            font-size: clamp(2.4rem, 5vw, 4rem);
+            font-size: clamp(2.2rem, 4.5vw, 3.6rem);
             font-weight: 700;
             letter-spacing: -0.015em;
-            line-height: 1.15;
-            margin-bottom: 96px;
+            line-height: 1.2;
+            margin-bottom: 24px;
         }
 
         .hero-line1 em {
@@ -264,34 +258,305 @@
             color: var(--purple);
         }
 
-        .hero-no {
-            color: #FF0000;
+        .hero-uncanny {
+            color: var(--yellow);
+            position: relative;
+            display: inline-block;
+            filter: url(#liquid-warp);
+            text-shadow: 0 0 6px rgba(250, 204, 21, 0.25);
         }
 
-        .hero-line2 {
-            font-family: var(--sans);
-            font-size: clamp(2.4rem, 5vw, 4rem);
-            font-weight: 400;
-            letter-spacing: -0.015em;
-            line-height: 1.15;
-            margin-bottom: 28px;
+        /* ── "nightmarish" TV stutter / glitch ─────────── */
+        .hero-nightmarish {
+            color: var(--red);
+            position: relative;
+            display: inline-block;
+            text-shadow: 0 0 6px rgba(255, 0, 0, 0.3);
+            animation: glitch-base 3.5s infinite linear;
         }
 
-        .hero-line2 em {
-            font-style: normal;
-            color: var(--purple);
+        .hero-nightmarish::before,
+        .hero-nightmarish::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: var(--bg);
+        }
+
+        .hero-nightmarish::before {
+            color: var(--red);
+            text-shadow: -2px 0 #ff0000aa;
+            animation: glitch-stutter-1 3.5s infinite linear;
+        }
+
+        .hero-nightmarish::after {
+            color: var(--red);
+            text-shadow: 2px 0 #00ffff66;
+            animation: glitch-stutter-2 3.5s infinite linear;
+        }
+
+        /* Base text flicker — subtle twitch */
+        @keyframes glitch-base {
+            0%    { transform: translate(0); opacity: 1; }
+            7%    { transform: translate(0); opacity: 1; }
+            8%    { transform: translate(-1px, 0) skewX(-0.5deg); opacity: 0.92; }
+            9%    { transform: translate(1px, 0); opacity: 0.95; }
+            10%   { transform: translate(0); opacity: 1; }
+
+            44%   { transform: translate(0); opacity: 1; }
+            45%   { transform: translate(1px, 1px) skewX(1deg); opacity: 0.88; }
+            46%   { transform: translate(-2px, 0) skewX(-0.5deg); opacity: 0.85; }
+            47%   { transform: translate(1px, 0); opacity: 0.92; }
+            48%   { transform: translate(0); opacity: 1; }
+
+            79%   { transform: translate(0); opacity: 1; }
+            80%   { transform: translate(-1px, 0); opacity: 0.93; }
+            81%   { transform: translate(0); opacity: 1; }
+
+            100%  { transform: translate(0); opacity: 1; }
+        }
+
+        /* Stutter 1: red channel */
+        @keyframes glitch-stutter-1 {
+            0%    { clip-path: inset(0 0 100% 0); transform: translate(0); }
+            4%    { clip-path: inset(0 0 100% 0); transform: translate(0); }
+
+            /* Burst 1 */
+            5%    { clip-path: inset(10% 0 60% 0); transform: translate(-3px, -1px) skewX(-1deg); }
+            6%    { clip-path: inset(50% 0 15% 0); transform: translate(5px, 1px); }
+            7%    { clip-path: inset(25% 0 50% 0); transform: translate(-3px, 0) skewX(-1deg); }
+            8%    { clip-path: inset(0 0 100% 0); transform: translate(0); }
+
+            /* Quiet */
+            32%   { clip-path: inset(0 0 100% 0); transform: translate(0); }
+
+            /* Burst 2 */
+            33%   { clip-path: inset(5% 0 55% 0); transform: translate(5px, 0) skewX(1deg); }
+            34%   { clip-path: inset(45% 0 15% 0); transform: translate(-4px, 1px) skewX(-1deg); }
+            35%   { clip-path: inset(65% 0 5% 0); transform: translate(4px, -1px); }
+            36%   { clip-path: inset(20% 0 55% 0); transform: translate(-6px, 0) skewX(-1deg); }
+            37%   { clip-path: inset(0 0 100% 0); transform: translate(0); }
+
+            /* Quiet */
+            64%   { clip-path: inset(0 0 100% 0); transform: translate(0); }
+
+            /* Burst 3 — quick */
+            65%   { clip-path: inset(35% 0 30% 0); transform: translate(-3px, 1px); }
+            66%   { clip-path: inset(0 0 100% 0); transform: translate(0); }
+
+            100%  { clip-path: inset(0 0 100% 0); transform: translate(0); }
+        }
+
+        /* Stutter 2: cyan channel — offset timing */
+        @keyframes glitch-stutter-2 {
+            0%    { clip-path: inset(0 0 100% 0); transform: translate(0); }
+            14%   { clip-path: inset(0 0 100% 0); transform: translate(0); }
+
+            /* Burst 1 */
+            15%   { clip-path: inset(55% 0 10% 0); transform: translate(4px, 1px) skewX(1deg); }
+            16%   { clip-path: inset(15% 0 55% 0); transform: translate(-5px, 0); }
+            17%   { clip-path: inset(0 0 100% 0); transform: translate(0); }
+
+            /* Quiet */
+            44%   { clip-path: inset(0 0 100% 0); transform: translate(0); }
+
+            /* Burst 2 */
+            45%   { clip-path: inset(20% 0 45% 0); transform: translate(-5px, 1px) skewX(-1deg); }
+            46%   { clip-path: inset(55% 0 10% 0); transform: translate(4px, -1px); }
+            47%   { clip-path: inset(5% 0 65% 0); transform: translate(-3px, 0) skewX(-1deg); }
+            48%   { clip-path: inset(0 0 100% 0); transform: translate(0); }
+
+            /* Quiet */
+            74%   { clip-path: inset(0 0 100% 0); transform: translate(0); }
+
+            /* Burst 3 */
+            75%   { clip-path: inset(30% 0 35% 0); transform: translate(4px, 1px); }
+            76%   { clip-path: inset(0 0 100% 0); transform: translate(0); }
+
+            100%  { clip-path: inset(0 0 100% 0); transform: translate(0); }
+        }
+
+        /* Respect reduced motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            .hero-nightmarish { animation: none; text-shadow: none; }
+            .hero-nightmarish::before,
+            .hero-nightmarish::after { display: none; }
         }
 
         .hero-sub {
-            display: none;
-            font-size: clamp(0.92rem, 1.4vw, 1.02rem);
+            font-size: clamp(0.92rem, 1.4vw, 1.05rem);
             font-weight: 300;
             color: var(--cream-soft);
-            margin: 0 auto 44px;
+            margin: 0 auto 48px;
             line-height: 1.85;
+            max-width: 480px;
         }
 
         .hero-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+        /* ================================================================
+           MANIFESTO SECTIONS — Problem / Fix / Result
+           ================================================================
+           Text-only, left-aligned, narrow max-width (~640px).
+           Let the words breathe. No cards, no boxes.
+           ================================================================ */
+        .manifesto {
+            padding: 100px 0;
+            border-top: 1px solid var(--rule);
+            position: relative;
+        }
+
+        .manifesto-inner {
+            max-width: 640px;
+        }
+
+        .manifesto-eyebrow {
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--red);
+            margin-bottom: 20px;
+        }
+
+        .manifesto-title {
+            font-family: var(--sans);
+            font-size: clamp(31px, 3.5vw, 44px);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 28px;
+            letter-spacing: -0.02em;
+        }
+
+        .manifesto-body {
+            font-size: 19px;
+            font-weight: 300;
+            color: var(--cream-soft);
+            line-height: 1.9;
+        }
+
+        .manifesto-body strong {
+            color: var(--cream);
+            font-weight: 500;
+        }
+
+        .manifesto-link {
+            display: inline-block;
+            margin-top: 24px;
+            font-size: 0.92rem;
+            font-weight: 500;
+            color: var(--purple-light);
+            transition: color 0.2s;
+        }
+
+        .manifesto-link:hover {
+            color: var(--cream);
+        }
+
+        /* ── Problem section — red ambient glow ── */
+        .manifesto--problem::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: 0;
+            width: 400px; height: 300px;
+            background: radial-gradient(ellipse, rgba(255, 0, 0, 0.04) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        /* ── Fix section — transition to blue glow ── */
+        .manifesto--fix::before {
+            content: '';
+            position: absolute;
+            top: 15%;
+            right: 0;
+            width: 450px; height: 350px;
+            background: radial-gradient(ellipse, rgba(0, 40, 224, 0.06) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        /* ── Result section — full blue confidence glow ── */
+        .manifesto--result::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px; height: 400px;
+            background: radial-gradient(ellipse, rgba(0, 40, 224, 0.08) 0%, transparent 55%);
+            pointer-events: none;
+        }
+
+        /* ── Decorative line element ──
+           Tangled/broken in Problem, clean/straight in Result.
+           Pure CSS, no JS animation. */
+
+        .deco-line {
+            position: absolute;
+            pointer-events: none;
+        }
+
+        /* Problem: tangled broken lines — right side */
+        .manifesto--problem .deco-line {
+            top: 15%;
+            right: 8%;
+            width: 80px;
+            height: 200px;
+        }
+
+        .manifesto--problem .deco-line::before,
+        .manifesto--problem .deco-line::after {
+            content: '';
+            position: absolute;
+            width: 1px;
+            background: linear-gradient(180deg, transparent, rgba(255, 0, 0, 0.15), transparent);
+        }
+
+        .manifesto--problem .deco-line::before {
+            top: 0;
+            left: 20px;
+            height: 100%;
+            transform: rotate(-8deg);
+        }
+
+        .manifesto--problem .deco-line::after {
+            top: 10%;
+            left: 50px;
+            height: 70%;
+            transform: rotate(15deg);
+        }
+
+        /* Fix: transitioning — angled lines */
+        .manifesto--fix .deco-line {
+            top: 20%;
+            right: 10%;
+            width: 60px;
+            height: 160px;
+        }
+
+        .manifesto--fix .deco-line::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 30px;
+            width: 1px;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, rgba(0, 40, 224, 0.18), transparent);
+            transform: rotate(5deg);
+        }
+
+        /* Result: clean straight line — resolved */
+        .manifesto--result .deco-line {
+            top: 15%;
+            right: 12%;
+            width: 1px;
+            height: 180px;
+            background: linear-gradient(180deg, transparent, rgba(0, 40, 224, 0.25), transparent);
+        }
 
         /* ================================================================
            SECTION PRIMITIVES
@@ -299,11 +564,11 @@
         .section { padding: 120px 0; border-top: 1px solid var(--rule); }
 
         .tag {
-            font-size: 11px;
+            font-size: 16px;
             font-weight: 600;
             letter-spacing: 0.14em;
             text-transform: uppercase;
-            color: var(--purple-light);
+            color: var(--red);
             margin-bottom: 14px;
         }
 
@@ -325,117 +590,6 @@
         }
 
         .sec-desc strong { color: var(--cream); font-weight: 500; }
-
-        /* ================================================================
-           MOTION DEEP-DIVE
-           ================================================================ */
-        .motion-header { margin-bottom: 64px; }
-
-        /* ── Storyboard panels ── */
-        .storyboard {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 16px;
-            margin-bottom: 64px;
-        }
-
-        .sb-panel { position: relative; }
-
-        .sb-frame {
-            aspect-ratio: 3 / 4;
-            background: var(--bg-card);
-            border: 1px solid var(--rule);
-            border-radius: var(--r-md);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 20px;
-            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-            position: relative;
-        }
-
-        .sb-frame:hover {
-            border-color: rgba(51, 85, 255, 0.35);
-            box-shadow: 0 14px 44px rgba(0,0,0,0.45), 0 0 40px rgba(0, 40, 224, 0.06);
-            transform: translateY(-6px);
-        }
-
-        /* Step number — minimal circle */
-        .sb-num {
-            width: 28px; height: 28px;
-            border-radius: 50%;
-            background: var(--purple-dim);
-            border: 1px solid rgba(51, 85, 255, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--purple-light);
-            flex-shrink: 0;
-        }
-
-        .sb-label {
-            font-size: 14px;
-            font-weight: 400;
-            color: var(--muted);
-            text-align: center;
-            line-height: 1.4;
-        }
-
-        .sb-caption { margin-top: 14px; }
-        .sb-caption p {
-            font-size: 0.86rem;
-            font-weight: 300;
-            color: var(--cream-soft);
-            line-height: 1.55;
-        }
-
-        /* ── Finished film frame ── */
-        .film-result {
-            max-width: 740px;
-            margin: 0 auto 32px;
-        }
-
-        .film-frame {
-            aspect-ratio: 21 / 9;
-            background: var(--bg-card);
-            border: 1px solid var(--rule);
-            border-radius: var(--r-lg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .film-frame::before, .film-frame::after {
-            content: ''; position: absolute; left: 0; right: 0;
-            height: 11%; background: var(--bg); z-index: 1;
-        }
-        .film-frame::before { top: 0; }
-        .film-frame::after { bottom: 0; }
-
-        .film-frame span {
-            font-size: 14px;
-            font-weight: 400;
-            color: var(--muted);
-            z-index: 2;
-        }
-
-        .film-caption {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 1rem;
-            font-weight: 300;
-            color: var(--cream-soft);
-        }
-        .film-caption strong { color: var(--purple-light); font-weight: 600; }
-
-        .motion-cta { text-align: center; margin-top: 40px; }
 
         /* ================================================================
            TOOLKIT — v3 card system: featured + grid
@@ -581,7 +735,7 @@
         }
 
         .tool-other p {
-            font-size: 0.82rem;
+            font-size: 15px;
             font-weight: 300;
             color: var(--gray);
             line-height: 1.55;
@@ -702,7 +856,7 @@
         .topups-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
 
         /* ================================================================
-           FINAL CTA
+           FINAL CTA — bookend: uses hero headline from index.html
            ================================================================ */
         .final-cta {
             padding: 140px 0;
@@ -735,17 +889,18 @@
         .final-cta h2 {
             font-family: var(--sans);
             font-size: clamp(2rem, 4.5vw, 3.2rem);
-            font-weight: 400;
+            font-weight: 700;
             line-height: 1.15;
             margin-bottom: 16px;
             position: relative;
         }
-        .final-cta h2 em { font-style: normal; color: var(--purple-light); }
+        .final-cta h2 em { font-style: normal; color: var(--purple); }
+        .final-cta .hero-no { color: #FF0000; }
 
         .final-cta .btn { margin-top: 40px; }
 
         /* ================================================================
-           FOOTER — original format
+           FOOTER
            ================================================================ */
         .site-footer {
             padding: 2.5rem 0;
@@ -816,6 +971,7 @@
         .stagger.is-visible > *:nth-child(2) { transition-delay: 0.13s; }
         .stagger.is-visible > *:nth-child(3) { transition-delay: 0.21s; }
         .stagger.is-visible > *:nth-child(4) { transition-delay: 0.29s; }
+        .stagger.is-visible > *:nth-child(5) { transition-delay: 0.37s; }
 
         .hero-enter {
             opacity: 0; transform: translateY(20px);
@@ -824,7 +980,6 @@
         .hero-enter:nth-child(2) { animation-delay: 0.12s; }
         .hero-enter:nth-child(3) { animation-delay: 0.24s; }
         .hero-enter:nth-child(4) { animation-delay: 0.36s; }
-        .hero-enter:nth-child(5) { animation-delay: 0.48s; }
 
         @keyframes heroIn { to { opacity: 1; transform: translateY(0); } }
 
@@ -832,18 +987,17 @@
            RESPONSIVE
            ================================================================ */
         @media (max-width: 960px) {
-            .storyboard { grid-template-columns: repeat(2, 1fr); }
             .tool-feature { grid-template-columns: 1fr; padding: 32px; }
             .tools-others, .plans-grid { grid-template-columns: repeat(2, 1fr); }
+            .deco-line { display: none; }
         }
 
         @media (max-width: 640px) {
             .nav { display: none; }
             .hero { padding: 48px 0; min-height: auto; }
-            .hero h1 { font-size: 2.5rem; }
+            .hero-line1 { font-size: 2rem; }
             .section { padding: 80px 0; }
-
-            .storyboard { grid-template-columns: 1fr 1fr; gap: 12px; }
+            .manifesto { padding: 72px 0; }
 
             .hero-ctas { flex-direction: column; align-items: stretch; max-width: 300px; margin: 0 auto; }
             .hero-ctas .btn { justify-content: center; }
@@ -862,6 +1016,16 @@
 </head>
 <body>
 
+    <!-- Hidden SVG filter for liquid warp on "uncanny" -->
+    <svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+        <defs>
+            <filter id="liquid-warp" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+                <feTurbulence id="liquid-turb" type="turbulence" baseFrequency="0.02 0.04" numOctaves="3" seed="2" result="warp"/>
+                <feDisplacementMap in="SourceGraphic" in2="warp" scale="3" xChannelSelector="R" yChannelSelector="G"/>
+            </filter>
+        </defs>
+    </svg>
+
     <!-- ─── HEADER ────────────────────────────────── -->
     <header class="site-header">
         <div class="header-inner">
@@ -870,7 +1034,6 @@
                 <span class="brand-name">DesignCat</span>
             </a>
             <nav class="nav">
-                <a href="#motion">Motion</a>
                 <a href="#toolkit">Tools</a>
                 <a href="#pricing">Pricing</a>
             </nav>
@@ -881,14 +1044,14 @@
         </div>
     </header>
 
-    <!-- ─── HERO ──────────────────────────────────── -->
+    <!-- ─── HERO — "The 1%" ──────────────────────── -->
     <section class="hero" id="top">
         <div class="wrap">
             <p class="hero-eyebrow hero-enter">AI Design Suite for Businesses &amp; Solopreneurs</p>
 
-            <h1 class="hero-line1 hero-enter">Materialize your <em>ideas</em>,<br><span class="hero-no">no</span> AI slop.</h1>
+            <h1 class="hero-line1 hero-enter">99% of AI content looks<br><span class="hero-uncanny">uncanny</span> and <span class="hero-nightmarish" data-text="nightmarish">nightmarish</span>.<br>We're building the <em>1%</em>.</h1>
 
-            <p class="hero-sub hero-enter">With purpose-built creative tools. Everything you need&thinsp;&mdash;&thinsp;nothing you don't.</p>
+            <p class="hero-sub hero-enter">Built by creators who got tired of the uncanny valley.</p>
 
             <div class="hero-ctas hero-enter">
                 <a class="btn btn-purple btn-lg" href="https://app.designcat.io/auth/register">
@@ -900,12 +1063,63 @@
         </div>
     </section>
 
-    <!-- ─── FULL TOOLKIT — v3 card system ─────────── -->
+    <!-- ─── PROBLEM — "We've been there." ─────────── -->
+    <section class="manifesto manifesto--problem reveal">
+        <div class="wrap">
+            <div class="deco-line"></div>
+            <div class="manifesto-inner">
+                <p class="manifesto-eyebrow">The problem</p>
+                <h2 class="manifesto-title">We've been there.</h2>
+                <p class="manifesto-body">
+                    Hundreds of hours. Thousands of credits burned. You tweak 40 parameters,
+                    swap 12 models, run it again. And most of what comes back
+                    is&hellip; off. Almost right. Almost human. Almost usable.
+                    <strong>A few flashes of brilliance buried in a mountain of slop.</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── FIX — "So we built the filter." ───────── -->
+    <section class="manifesto manifesto--fix reveal">
+        <div class="wrap">
+            <div class="deco-line"></div>
+            <div class="manifesto-inner">
+                <p class="manifesto-eyebrow">The fix</p>
+                <h2 class="manifesto-title">So we built the filter.</h2>
+                <p class="manifesto-body">
+                    A squad of data scientist, filmmaker, photographer, engineer.
+                    Six months in a room together. One proprietary benchmarking system
+                    that knows which AI tool and parameters produce the best result for your specific task.
+                    <strong>You describe what you want. We route it. You never see the plumbing.</strong>
+                </p>
+                <a class="manifesto-link" href="#">How our benchmarking works &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── RESULT — "Your hit rate, multiplied." ─── -->
+    <section class="manifesto manifesto--result reveal">
+        <div class="wrap">
+            <div class="deco-line"></div>
+            <div class="manifesto-inner">
+                <p class="manifesto-eyebrow">The result</p>
+                <h2 class="manifesto-title">Your hit rate, multiplied.</h2>
+                <p class="manifesto-body">
+                    Production-grade material. Not on the tenth try&thinsp;&mdash;&thinsp;on the first.
+                    No more uncanny valley.
+                    <strong>A straight line from idea to finished asset.</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── FULL TOOLKIT — "Six disciplines. One studio." ── -->
     <section class="section" id="toolkit">
         <div class="wrap">
             <div class="toolkit-header reveal">
                 <p class="tag">Creative toolkit</p>
-                <h2 class="sec-title">Five disciplines. One studio.</h2>
+                <h2 class="sec-title">Six disciplines. One studio.</h2>
                 <p class="sec-desc">Each tool is purpose-built for a different kind of creative work. We obsessed over the details so you don't have to.</p>
             </div>
 
@@ -926,8 +1140,14 @@
                 </div>
             </div>
 
-            <!-- Other tools: 4-card grid -->
+            <!-- Other tools: 5-card grid -->
             <div class="tools-others stagger reveal">
+                <article class="tool-other">
+                    <span class="tool-other-soon">Soon</span>
+                    <div class="tool-other-icon"><img src="assets/tool_procut.svg" alt="ProCut"></div>
+                    <h4>ProCut</h4>
+                    <p>Video editing like a Pro but Cool.</p>
+                </article>
                 <article class="tool-other">
                     <span class="tool-other-soon">Soon</span>
                     <div class="tool-other-icon"><img src="assets/tool_image.svg" alt="Image"></div>
@@ -952,75 +1172,6 @@
                     <h4>Slides</h4>
                     <p>Decks that persuade and tell a story.</p>
                 </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- ─── MOTION DEEP-DIVE ──────────────────────── -->
-    <section class="section" id="motion" style="display:none">
-        <div class="wrap">
-            <div class="motion-header reveal">
-                <p class="tag">Starting with Motion</p>
-                <h2 class="sec-title">From storyboard to final cut</h2>
-                <p class="sec-desc">
-                    Upload photos and brand assets. Add AI-generated characters and elements.
-                    Build scenes with plain-language prompts. Generate video, add music
-                    and dialogue, export. A complete production pipeline in one tool.
-                </p>
-            </div>
-
-            <!-- 4-panel storyboard -->
-            <div class="storyboard stagger reveal">
-                <div class="sb-panel">
-                    <div class="sb-frame">
-                        <span class="sb-num">1</span>
-                        <span class="sb-label">your real photos</span>
-                    </div>
-                    <div class="sb-caption">
-                        <p>Upload product shots, brand photos, raw assets. The AI builds on your real content.</p>
-                    </div>
-                </div>
-                <div class="sb-panel">
-                    <div class="sb-frame">
-                        <span class="sb-num">2</span>
-                        <span class="sb-label">+ AI elements</span>
-                    </div>
-                    <div class="sb-caption">
-                        <p>Add AI-generated characters, props, and atmosphere. Seamless compositing.</p>
-                    </div>
-                </div>
-                <div class="sb-panel">
-                    <div class="sb-frame">
-                        <span class="sb-num">3</span>
-                        <span class="sb-label">build your scenes</span>
-                    </div>
-                    <div class="sb-caption">
-                        <p>Write what happens in each scene. AI generates matching visuals from your prompts and assets.</p>
-                    </div>
-                </div>
-                <div class="sb-panel">
-                    <div class="sb-frame">
-                        <span class="sb-num">4</span>
-                        <span class="sb-label">generate &amp; export</span>
-                    </div>
-                    <div class="sb-caption">
-                        <p>Video clips, music, dialogue. One click each. Export the finished cut.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- The result -->
-            <div class="film-result reveal">
-                <div class="film-frame">
-                    <span>The finished video</span>
-                </div>
-                <p class="film-caption">
-                    <strong>Production-quality</strong> output. Built in an afternoon.
-                </p>
-            </div>
-
-            <div class="motion-cta reveal">
-                <a class="btn btn-purple btn-lg" href="https://app.designcat.io/auth/register">Try Motion</a>
             </div>
         </div>
     </section>
@@ -1123,10 +1274,10 @@
         </div>
     </section>
 
-    <!-- ─── FINAL CTA ─────────────────────────────── -->
+    <!-- ─── FINAL CTA — bookend from index.html hero ── -->
     <section class="final-cta reveal">
         <div class="wrap">
-            <h2>Your next project deserves<br>better tools.</h2>
+            <h2>Materialize your <em>ideas</em>,<br><span class="hero-no">no</span> AI slop.</h2>
             <a class="btn btn-purple btn-lg" href="https://app.designcat.io/auth/register">
                 Start Creating
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.33 8h9.34"/><path d="M8.67 4 12.67 8l-4 4"/></svg>
@@ -1187,6 +1338,26 @@
                 });
             }, { threshold: 0.08 });
             els.forEach(function (el) { io.observe(el); });
+        })();
+
+        /* Liquid warp animation for "uncanny" —
+           slowly oscillates the turbulence baseFrequency
+           so the text looks like it's being seen through
+           a viscous, sticky liquid. */
+        (function () {
+            var turb = document.getElementById('liquid-turb');
+            if (!turb) return;
+            var mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+            if (mq.matches) return;
+            var t = 0;
+            function animate() {
+                t += 0.008;
+                var fx = 0.02 + Math.sin(t * 0.7) * 0.003 + Math.sin(t * 1.3) * 0.001;
+                var fy = 0.04 + Math.cos(t * 0.9) * 0.004 + Math.cos(t * 1.6) * 0.002;
+                turb.setAttribute('baseFrequency', fx.toFixed(4) + ' ' + fy.toFixed(4));
+                requestAnimationFrame(animate);
+            }
+            requestAnimationFrame(animate);
         })();
     </script>
 
