@@ -943,30 +943,11 @@
 
         .pricing-controls-sub { font-size: 16px; color: var(--gray); font-weight: 400; }
 
-        .toggle-wrap {
-            display: inline-flex;
-            background: var(--bg-card);
-            border: 1px solid var(--rule);
-            border-radius: 999px;
-            padding: 4px;
-        }
-
-        .toggle-btn {
-            font-family: var(--sans); font-size: 13px; font-weight: 500;
-            padding: 8px 20px; border-radius: 999px; border: none;
-            background: transparent; color: var(--gray); cursor: pointer;
-            transition: all 0.25s;
-        }
-        .toggle-btn.is-active { background: var(--purple); color: var(--purple-text); }
-        .toggle-btn:focus-visible { outline: 2px solid var(--purple-light); outline-offset: 2px; }
-
         .plans-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 14px;
         }
-        .plans-grid.is-hidden { display: none; }
-
         .plan-card {
             background: var(--bg-card);
             border: 1px solid var(--rule);
@@ -998,15 +979,6 @@
         .plan-price { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
         .plan-amount { font-size: 34px; font-weight: 700; line-height: 1; letter-spacing: -0.02em; }
         .plan-term { font-size: 15px; color: var(--gray); }
-        .plan-og { font-size: 15px; color: var(--muted); text-decoration: line-through; }
-        .plan-save {
-            position: absolute;
-            top: 10px; right: 10px;
-            font-size: 11px; font-weight: 700;
-            background: var(--yellow); color: var(--bg);
-            padding: 4px 10px; border-radius: 999px;
-            border: none;
-        }
         .plan-credits { font-size: 14px; color: var(--gray); font-weight: 400; }
         .plan-card .btn { margin-top: auto; width: 100%; }
 
@@ -1428,7 +1400,7 @@
                 </div>
             </div>
 
-            <div class="plans-grid stagger reveal" id="plans-monthly" role="tabpanel">
+            <div class="plans-grid stagger reveal" id="plans" role="tabpanel">
                 <article class="plan-card">
                     <p class="plan-name">Starter</p>
                     <div class="plan-price"><span class="plan-amount">$15</span><span class="plan-term">/mo</span></div>
